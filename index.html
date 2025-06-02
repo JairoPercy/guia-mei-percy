@@ -62,15 +62,18 @@
 
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-           <a href="#" class="text-xl font-bold text-teal-700 flex items-center space-x-2">
-    <img src="ativos/logopercyimagens/logopercyatual.jpeg" alt="Logo Percy Contabilidade" class="h-8 md:h-10 w-auto"> 
-           </a>
+            <a href="#" class="text-xl font-bold text-teal-700 flex items-center space-x-2">
+                <img src="ativos/logopercyimagens/logopercyatual.jpeg" alt="Logo Percy Contabilidade" class="h-8 md:h-10 w-auto">
+            </a>
+
+            <div class="hidden md:flex items-center space-x-6">
                 <a href="#diagnostico" class="hover:text-teal-600">Diagnóstico MEI</a>
                 <a href="#beneficios" class="hover:text-teal-600">Benefícios x Obrigações</a>
                 <a href="#jornada" class="hover:text-teal-600">A Jornada</a>
                 <a href="#duvidas" class="hover:text-teal-600">Dúvidas Comuns</a>
                 <a href="#contato" class="hover:text-teal-600">Comece Agora</a>
             </div>
+
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-slate-800 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -107,14 +110,14 @@
                             <option value="nok">Acima de R$ 81.000 (não sou caminhoneiro)</option>
                         </select>
                     </div>
-                     <div>
+                    <div>
                         <label class="font-semibold block mb-2">Você é sócio ou administrador de outra empresa?</label>
                         <select id="quiz-socio" class="w-full p-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
                             <option value="ok">Não</option>
                             <option value="nok">Sim</option>
                         </select>
                     </div>
-                     <div>
+                    <div>
                         <label class="font-semibold block mb-2">Quantos funcionários pretende contratar?</label>
                         <select id="quiz-funcionarios" class="w-full p-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
                             <option value="ok">Nenhum</option>
@@ -129,30 +132,32 @@
                     <h3 id="result-title" class="text-2xl font-bold mb-2"></h3>
                     <p id="result-text"></p>
                 </div>
-
+                <div class="text-center">
+                    <a href="https://wa.me/5521985518475?text=Olá%2C%20fale%20agora%20sobre%20MEI!" target="_blank" class="inline-block mt-8 bg-teal-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors text-sm">Fale com um Especialista</a>
+                </div>
                 <div class="mt-12 pt-8 border-t border-stone-200">
-                     <h3 class="text-2xl font-bold text-center mb-6">Com qual perfil você mais se identifica?</h3>
-                     <p class="text-center text-slate-500 mb-8">Clique em um perfil para ver como o MEI pode resolver dores específicas.</p>
-                     <div class="grid md:grid-cols-3 gap-8">
+                    <h3 class="text-2xl font-bold text-center mb-6">Com qual perfil você mais se identifica?</h3>
+                    <p class="text-center text-slate-500 mb-8">Clique em um perfil para ver como o MEI pode resolver dores específicas.</p>
+                    <div class="grid md:grid-cols-3 gap-8">
                         <div id="avatar-ana" class="avatar-card cursor-pointer bg-stone-50 p-6 rounded-lg border-2 border-transparent text-center">
-                             <div class="text-4xl mb-4">💇‍♀️</div>
-                             <h4 class="font-bold text-lg">Ana, a Cabeleireira</h4>
-                             <p class="text-sm text-slate-500">Busca segurança e quer profissionalizar seu atendimento a domicílio.</p>
+                            <div class="text-4xl mb-4">💇‍♀️</div>
+                            <h4 class="font-bold text-lg">Ana, a Cabeleireira</h4>
+                            <p class="text-sm text-slate-500">Busca segurança e quer profissionalizar seu atendimento a domicílio.</p>
                         </div>
                         <div id="avatar-bruno" class="avatar-card cursor-pointer bg-stone-50 p-6 rounded-lg border-2 border-transparent text-center">
-                             <div class="text-4xl mb-4">🎨</div>
-                             <h4 class="font-bold text-lg">Bruno, o Designer</h4>
-                             <p class="text-sm text-slate-500">Quer emitir nota para grandes empresas e acessar crédito.</p>
+                            <div class="text-4xl mb-4">🎨</div>
+                            <h4 class="font-bold text-lg">Bruno, o Designer</h4>
+                            <p class="text-sm text-slate-500">Quer emitir nota para grandes empresas e acessar crédito.</p>
                         </div>
-                         <div id="avatar-carlos" class="avatar-card cursor-pointer bg-stone-50 p-6 rounded-lg border-2 border-transparent text-center">
-                             <div class="text-4xl mb-4">🚗</div>
-                             <h4 class="font-bold text-lg">Carlos, o Motorista</h4>
-                             <p class="text-sm text-slate-500">Precisa regularizar seus ganhos e garantir sua aposentadoria.</p>
+                        <div id="avatar-carlos" class="avatar-card cursor-pointer bg-stone-50 p-6 rounded-lg border-2 border-transparent text-center">
+                            <div class="text-4xl mb-4">🚗</div>
+                            <h4 class="font-bold text-lg">Carlos, o Motorista</h4>
+                            <p class="text-sm text-slate-500">Precisa regularizar seus ganhos e garantir sua aposentadoria.</p>
                         </div>
-                     </div>
-                     <div id="avatar-reset" class="text-center mt-4">
+                    </div>
+                    <div id="avatar-reset" class="text-center mt-4">
                         <button class="text-sm text-teal-600 hover:underline">Limpar seleção</button>
-                     </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -167,12 +172,12 @@
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="bruno"><strong>Emissão de Notas Fiscais:</strong> Venda para outras empresas e governos, aumentando sua credibilidade e oportunidades.</div>
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="ana bruno"><strong>Acesso a Crédito Facilitado:</strong> Obtenha empréstimos e financiamentos com condições especiais para seu negócio.</div>
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="ana bruno carlos"><strong>CNPJ e Profissionalização:</strong> Tenha um registro empresarial, abra conta bancária PJ e use máquinas de cartão.</div>
-                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="ana bruno carlos"><strong>Impostos Simplificados e Baixo Custo:</strong> Pague um valor fixo mensal em uma única guia (DAS), muito mais barato que outros regimes.</div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="ana bruno carlos"><strong>Impostos Simplificados e Baixo Custo:</strong> Pague um valor fixo mensal em uma única guia (DAS), muito mais barato que outros regimes.</div>
                     </div>
                 </div>
                 <div id="obrigacoes-col">
                     <h3 class="text-2xl font-semibold text-red-700 mb-6 text-center md:text-left">⚠️ Suas Responsabilidades</h3>
-                     <div class="space-y-4">
+                    <div class="space-y-4">
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="ana bruno carlos"><strong>Pagamento Mensal do DAS:</strong> Pague sua guia de imposto até o dia 20 de cada mês para manter os benefícios em dia.</div>
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="carlos"><strong>Declaração Anual de Faturamento (DASN):</strong> Informe seu faturamento bruto do ano anterior, mesmo que seja zero, até 31 de maio.</div>
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="bruno"><strong>Emissão de Nota Fiscal (para empresas):</strong> Sempre que vender ou prestar serviço para outra empresa (CNPJ), a emissão é obrigatória.</div>
@@ -180,18 +185,21 @@
                     </div>
                 </div>
             </div>
-             <div class="mt-12 bg-white p-8 rounded-xl shadow-lg">
+            <div class="mt-12 bg-white p-8 rounded-xl shadow-lg">
                 <h3 class="text-2xl font-bold text-center mb-2">Entendendo seu imposto mensal (DAS)</h3>
                 <p class="text-center text-slate-500 mb-8">O valor fixo do DAS já inclui tudo o que você precisa pagar.</p>
                 <div class="chart-container">
                     <canvas id="dasChart"></canvas>
                 </div>
-            </div>
+                <div class="text-center">
+                    <a href="https://wa.me/5521985518475?text=Olá%2C%20fale%20agora%20sobre%20MEI!" target="_blank" class="inline-block mt-8 bg-teal-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors text-sm">Fale com um Especialista</a>
+                </div>
+                </div>
         </section>
 
         <section id="jornada" class="mb-16 md:mb-24 scroll-mt-20">
             <h2 class="text-3xl font-bold text-center mb-12">Sua Jornada para se Tornar MEI</h2>
-             <div class="relative">
+            <div class="relative">
                 <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-teal-200 -translate-y-1/2"></div>
                 <div class="grid md:grid-cols-4 gap-8">
                     <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
@@ -199,28 +207,31 @@
                         <h3 class="font-bold text-lg mb-2">Verificação</h3>
                         <p class="text-sm text-slate-500">Confira os requisitos, atividades permitidas e se não há impedimentos para você se formalizar.</p>
                     </div>
-                     <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-600 text-white font-bold text-xl mx-auto mb-4">2</div>
                         <h3 class="font-bold text-lg mb-2">Formalização Online</h3>
                         <p class="text-sm text-slate-500">Faça seu cadastro gratuito no Portal do Empreendedor (gov.br). Leva poucos minutos!</p>
                     </div>
-                     <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-600 text-white font-bold text-xl mx-auto mb-4">3</div>
                         <h3 class="font-bold text-lg mb-2">Primeiras Ações</h3>
                         <p class="text-sm text-slate-500">Emita seu CCMEI, organize-se para pagar o primeiro DAS e configure a emissão de notas fiscais, se necessário.</p>
                     </div>
-                     <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-600 text-white font-bold text-xl mx-auto mb-4">4</div>
                         <h3 class="font-bold text-lg mb-2">Gestão e Crescimento</h3>
                         <p class="text-sm text-slate-500">Faça o controle financeiro, entregue sua declaração anual e conte com a Percy Contabilidade para crescer.</p>
                     </div>
                 </div>
-             </div>
+                <div class="text-center">
+                    <a href="https://wa.me/5521985518475?text=Olá%2C%20fale%20agora%20sobre%20MEI!" target="_blank" class="inline-block mt-8 bg-teal-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors text-sm">Fale com um Especialista</a>
+                </div>
+                </div>
         </section>
 
         <section id="duvidas" class="mb-16 md:mb-24 scroll-mt-20">
-             <h2 class="text-3xl font-bold text-center mb-12">Dúvidas Comuns e Medos Resolvidos</h2>
-             <div class="max-w-3xl mx-auto space-y-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Dúvidas Comuns e Medos Resolvidos</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
                 <div class="accordion-item bg-white rounded-lg shadow-sm">
                     <button class="accordion-header w-full flex justify-between items-center text-left p-5 font-semibold">
                         <span>Tenho medo da burocracia e de fazer algo errado.</span>
@@ -230,40 +241,40 @@
                         <p class="p-5 pt-0 text-slate-600">É um medo comum, mas o processo do MEI foi criado para ser simples. A formalização é 100% online e as obrigações são poucas. Nosso papel na Percy Contabilidade é justamente te dar o passo a passo para que você faça tudo com segurança e sem erros.</p>
                     </div>
                 </div>
-                 <div class="accordion-item bg-white rounded-lg shadow-sm">
+                <div class="accordion-item bg-white rounded-lg shadow-sm">
                     <button class="accordion-header w-full flex justify-between items-center text-left p-5 font-semibold">
                         <span>Se eu virar MEI, perco o Seguro-Desemprego ou Bolsa Família?</span>
-                         <span class="text-2xl text-teal-500">+</span>
+                        <span class="text-2xl text-teal-500">+</span>
                     </button>
                     <div class="accordion-content">
                         <p class="p-5 pt-0 text-slate-600">Depende. Quem recebe Seguro-Desemprego pode ter o benefício suspenso ao se formalizar. Já o Bolsa Família não é cancelado automaticamente, mas a nova renda será considerada na atualização cadastral. É essencial analisar caso a caso.</p>
                     </div>
                 </div>
-                 <div class="accordion-item bg-white rounded-lg shadow-sm">
+                <div class="accordion-item bg-white rounded-lg shadow-sm">
                     <button class="accordion-header w-full flex justify-between items-center text-left p-5 font-semibold">
                         <span>Como separar o dinheiro da empresa do meu dinheiro pessoal?</span>
-                         <span class="text-2xl text-teal-500">+</span>
+                        <span class="text-2xl text-teal-500">+</span>
                     </button>
                     <div class="accordion-content">
                         <p class="p-5 pt-0 text-slate-600">Este é o maior desafio! A melhor prática é abrir uma conta bancária PJ (muitos bancos digitais oferecem contas gratuitas para MEI) e definir um valor fixo mensal para seu "salário" (pró-labore). Todo o resto é da empresa. Oferecemos planilhas e dicas para te ajudar nisso!</p>
                     </div>
                 </div>
-                 <div class="accordion-item bg-white rounded-lg shadow-sm">
+                <div class="accordion-item bg-white rounded-lg shadow-sm">
                     <button class="accordion-header w-full flex justify-between items-center text-left p-5 font-semibold">
                         <span>E se eu não pagar o DAS em dia?</span>
-                         <span class="text-2xl text-teal-500">+</span>
+                        <span class="text-2xl text-teal-500">+</span>
                     </button>
                     <div class="accordion-content">
                         <p class="p-5 pt-0 text-slate-600">O atraso gera juros e multa. Se a inadimplência persistir, você pode perder o direito aos benefícios previdenciários e até ter seu CNPJ cancelado pela Receita Federal. É fundamental manter o pagamento em dia para garantir sua tranquilidade.</p>
                     </div>
                 </div>
-             </div>
+            </div>
         </section>
 
         <section id="contato" class="bg-teal-700 text-white text-center p-12 rounded-xl shadow-2xl scroll-mt-20">
             <h2 class="text-4xl font-bold mb-4">Pronto para dar o próximo passo?</h2>
             <p class="max-w-2xl mx-auto mb-8">A formalização é o início de uma jornada de sucesso. Deixe a Percy Contabilidade te guiar pelo caminho certo, evitando dores de cabeça e garantindo que você aproveite todos os benefícios de ser MEI.</p>
-            <a href="https://www.percycontabilidade.com.br" target="_blank" class="bg-white text-teal-700 font-bold py-3 px-8 rounded-lg hover:bg-stone-100 transition-colors">Fale com um Especialista</a>
+            <a href="https://wa.me/5521985518475?text=Olá%2C%20fale%20agora%20sobre%20MEI!" target="_blank" class="bg-white text-teal-700 font-bold py-3 px-8 rounded-lg hover:bg-stone-100 transition-colors">Fale com um Especialista</a>
         </section>
 
     </main>
@@ -318,7 +329,7 @@
 
             document.querySelectorAll('#mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
-                     mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.add('hidden');
                 });
             });
 
