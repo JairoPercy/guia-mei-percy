@@ -63,17 +63,16 @@
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#" class="text-xl font-bold text-teal-700 flex items-center space-x-2">
-                <img src="logopercyatual.jpeg" alt="Logo Percy Contabilidade" class="h-16 md:h-20 w-auto">
+                <img src="files/logo percy contabilidade final.jpeg-7af8feb4-a171-44d4-bed5-5de8518bb794" alt="Logo Percy Contabilidade" class="h-8 md:h-10 w-auto">
             </a>
-
-            <div class="hidden md:flex items-center space-x-6">
+            <div class="hidden md:flex space-x-6 text-slate-600">
                 <a href="#diagnostico" class="hover:text-teal-600">Diagnóstico MEI</a>
                 <a href="#beneficios" class="hover:text-teal-600">Benefícios x Obrigações</a>
                 <a href="#jornada" class="hover:text-teal-600">A Jornada</a>
                 <a href="#duvidas" class="hover:text-teal-600">Dúvidas Comuns</a>
+                <a href="#evolucao_mei" class="hover:text-teal-600">Evolução MEI</a>
                 <a href="#contato" class="hover:text-teal-600">Comece Agora</a>
             </div>
-
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-slate-800 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -85,6 +84,7 @@
             <a href="#beneficios" class="block py-2 px-6 text-sm hover:bg-stone-100">Benefícios x Obrigações</a>
             <a href="#jornada" class="block py-2 px-6 text-sm hover:bg-stone-100">A Jornada</a>
             <a href="#duvidas" class="block py-2 px-6 text-sm hover:bg-stone-100">Dúvidas Comuns</a>
+            <a href="#evolucao_mei" class="block py-2 px-6 text-sm hover:bg-stone-100">Evolução MEI</a>
             <a href="#contato" class="block py-2 px-6 text-sm hover:bg-stone-100">Comece Agora</a>
         </div>
     </header>
@@ -110,14 +110,14 @@
                             <option value="nok">Acima de R$ 81.000 (não sou caminhoneiro)</option>
                         </select>
                     </div>
-                    <div>
+                     <div>
                         <label class="font-semibold block mb-2">Você é sócio ou administrador de outra empresa?</label>
                         <select id="quiz-socio" class="w-full p-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
                             <option value="ok">Não</option>
                             <option value="nok">Sim</option>
                         </select>
                     </div>
-                    <div>
+                     <div>
                         <label class="font-semibold block mb-2">Quantos funcionários pretende contratar?</label>
                         <select id="quiz-funcionarios" class="w-full p-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
                             <option value="ok">Nenhum</option>
@@ -132,32 +132,30 @@
                     <h3 id="result-title" class="text-2xl font-bold mb-2"></h3>
                     <p id="result-text"></p>
                 </div>
-                <div class="text-center">
-                    <a href="https://wa.me/5521985518475?text=Olá%2C%20fale%20agora%20sobre%20MEI!" target="_blank" class="inline-block mt-8 bg-teal-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors text-sm">Fale com um Especialista</a>
-                </div>
+
                 <div class="mt-12 pt-8 border-t border-stone-200">
-                    <h3 class="text-2xl font-bold text-center mb-6">Com qual perfil você mais se identifica?</h3>
-                    <p class="text-center text-slate-500 mb-8">Clique em um perfil para ver como o MEI pode resolver dores específicas.</p>
-                    <div class="grid md:grid-cols-3 gap-8">
+                     <h3 class="text-2xl font-bold text-center mb-6">Com qual perfil você mais se identifica?</h3>
+                     <p class="text-center text-slate-500 mb-8">Clique em um perfil para ver como o MEI pode resolver dores específicas.</p>
+                     <div class="grid md:grid-cols-3 gap-8">
                         <div id="avatar-ana" class="avatar-card cursor-pointer bg-stone-50 p-6 rounded-lg border-2 border-transparent text-center">
-                            <div class="text-4xl mb-4">💇‍♀️</div>
-                            <h4 class="font-bold text-lg">Ana, a Cabeleireira</h4>
-                            <p class="text-sm text-slate-500">Busca segurança e quer profissionalizar seu atendimento a domicílio.</p>
+                             <div class="text-4xl mb-4">💇‍♀️</div>
+                             <h4 class="font-bold text-lg">Ana, a Cabeleireira</h4>
+                             <p class="text-sm text-slate-500">Busca segurança e quer profissionalizar seu atendimento a domicílio.</p>
                         </div>
                         <div id="avatar-bruno" class="avatar-card cursor-pointer bg-stone-50 p-6 rounded-lg border-2 border-transparent text-center">
-                            <div class="text-4xl mb-4">🎨</div>
-                            <h4 class="font-bold text-lg">Bruno, o Designer</h4>
-                            <p class="text-sm text-slate-500">Quer emitir nota para grandes empresas e acessar crédito.</p>
+                             <div class="text-4xl mb-4">🎨</div>
+                             <h4 class="font-bold text-lg">Bruno, o Designer</h4>
+                             <p class="text-sm text-slate-500">Quer emitir nota para grandes empresas e acessar crédito.</p>
                         </div>
-                        <div id="avatar-carlos" class="avatar-card cursor-pointer bg-stone-50 p-6 rounded-lg border-2 border-transparent text-center">
-                            <div class="text-4xl mb-4">🚗</div>
-                            <h4 class="font-bold text-lg">Carlos, o Motorista</h4>
-                            <p class="text-sm text-slate-500">Precisa regularizar seus ganhos e garantir sua aposentadoria.</p>
+                         <div id="avatar-carlos" class="avatar-card cursor-pointer bg-stone-50 p-6 rounded-lg border-2 border-transparent text-center">
+                             <div class="text-4xl mb-4">🚗</div>
+                             <h4 class="font-bold text-lg">Carlos, o Motorista</h4>
+                             <p class="text-sm text-slate-500">Precisa regularizar seus ganhos e garantir sua aposentadoria.</p>
                         </div>
-                    </div>
-                    <div id="avatar-reset" class="text-center mt-4">
+                     </div>
+                     <div id="avatar-reset" class="text-center mt-4">
                         <button class="text-sm text-teal-600 hover:underline">Limpar seleção</button>
-                    </div>
+                     </div>
                 </div>
             </div>
         </section>
@@ -172,12 +170,12 @@
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="bruno"><strong>Emissão de Notas Fiscais:</strong> Venda para outras empresas e governos, aumentando sua credibilidade e oportunidades.</div>
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="ana bruno"><strong>Acesso a Crédito Facilitado:</strong> Obtenha empréstimos e financiamentos com condições especiais para seu negócio.</div>
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="ana bruno carlos"><strong>CNPJ e Profissionalização:</strong> Tenha um registro empresarial, abra conta bancária PJ e use máquinas de cartão.</div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="ana bruno carlos"><strong>Impostos Simplificados e Baixo Custo:</strong> Pague um valor fixo mensal em uma única guia (DAS), muito mais barato que outros regimes.</div>
+                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="ana bruno carlos"><strong>Impostos Simplificados e Baixo Custo:</strong> Pague um valor fixo mensal em uma única guia (DAS), muito mais barato que outros regimes.</div>
                     </div>
                 </div>
                 <div id="obrigacoes-col">
                     <h3 class="text-2xl font-semibold text-red-700 mb-6 text-center md:text-left">⚠️ Suas Responsabilidades</h3>
-                    <div class="space-y-4">
+                     <div class="space-y-4">
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="ana bruno carlos"><strong>Pagamento Mensal do DAS:</strong> Pague sua guia de imposto até o dia 20 de cada mês para manter os benefícios em dia.</div>
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="carlos"><strong>Declaração Anual de Faturamento (DASN):</strong> Informe seu faturamento bruto do ano anterior, mesmo que seja zero, até 31 de maio.</div>
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="bruno"><strong>Emissão de Nota Fiscal (para empresas):</strong> Sempre que vender ou prestar serviço para outra empresa (CNPJ), a emissão é obrigatória.</div>
@@ -185,21 +183,18 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-12 bg-white p-8 rounded-xl shadow-lg">
+             <div class="mt-12 bg-white p-8 rounded-xl shadow-lg">
                 <h3 class="text-2xl font-bold text-center mb-2">Entendendo seu imposto mensal (DAS)</h3>
                 <p class="text-center text-slate-500 mb-8">O valor fixo do DAS já inclui tudo o que você precisa pagar.</p>
                 <div class="chart-container">
                     <canvas id="dasChart"></canvas>
                 </div>
-                <div class="text-center">
-                    <a href="https://wa.me/5521985518475?text=Olá%2C%20fale%20agora%20sobre%20MEI!" target="_blank" class="inline-block mt-8 bg-teal-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors text-sm">Fale com um Especialista</a>
-                </div>
-                </div>
+            </div>
         </section>
 
         <section id="jornada" class="mb-16 md:mb-24 scroll-mt-20">
             <h2 class="text-3xl font-bold text-center mb-12">Sua Jornada para se Tornar MEI</h2>
-            <div class="relative">
+             <div class="relative">
                 <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-teal-200 -translate-y-1/2"></div>
                 <div class="grid md:grid-cols-4 gap-8">
                     <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
@@ -207,31 +202,28 @@
                         <h3 class="font-bold text-lg mb-2">Verificação</h3>
                         <p class="text-sm text-slate-500">Confira os requisitos, atividades permitidas e se não há impedimentos para você se formalizar.</p>
                     </div>
-                    <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
+                     <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-600 text-white font-bold text-xl mx-auto mb-4">2</div>
                         <h3 class="font-bold text-lg mb-2">Formalização Online</h3>
                         <p class="text-sm text-slate-500">Faça seu cadastro gratuito no Portal do Empreendedor (gov.br). Leva poucos minutos!</p>
                     </div>
-                    <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
+                     <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-600 text-white font-bold text-xl mx-auto mb-4">3</div>
                         <h3 class="font-bold text-lg mb-2">Primeiras Ações</h3>
                         <p class="text-sm text-slate-500">Emita seu CCMEI, organize-se para pagar o primeiro DAS e configure a emissão de notas fiscais, se necessário.</p>
                     </div>
-                    <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
+                     <div class="text-center relative bg-white p-6 rounded-lg shadow-md">
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-600 text-white font-bold text-xl mx-auto mb-4">4</div>
                         <h3 class="font-bold text-lg mb-2">Gestão e Crescimento</h3>
                         <p class="text-sm text-slate-500">Faça o controle financeiro, entregue sua declaração anual e conte com a Percy Contabilidade para crescer.</p>
                     </div>
                 </div>
-                <div class="text-center">
-                    <a href="https://wa.me/5521985518475?text=Olá%2C%20fale%20agora%20sobre%20MEI!" target="_blank" class="inline-block mt-8 bg-teal-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors text-sm">Fale com um Especialista</a>
-                </div>
-                </div>
+             </div>
         </section>
 
         <section id="duvidas" class="mb-16 md:mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-12">Dúvidas Comuns e Medos Resolvidos</h2>
-            <div class="max-w-3xl mx-auto space-y-4">
+             <h2 class="text-3xl font-bold text-center mb-12">Dúvidas Comuns e Medos Resolvidos</h2>
+             <div class="max-w-3xl mx-auto space-y-4">
                 <div class="accordion-item bg-white rounded-lg shadow-sm">
                     <button class="accordion-header w-full flex justify-between items-center text-left p-5 font-semibold">
                         <span>Tenho medo da burocracia e de fazer algo errado.</span>
@@ -241,56 +233,157 @@
                         <p class="p-5 pt-0 text-slate-600">É um medo comum, mas o processo do MEI foi criado para ser simples. A formalização é 100% online e as obrigações são poucas. Nosso papel na Percy Contabilidade é justamente te dar o passo a passo para que você faça tudo com segurança e sem erros.</p>
                     </div>
                 </div>
-                <div class="accordion-item bg-white rounded-lg shadow-sm">
+                 <div class="accordion-item bg-white rounded-lg shadow-sm">
                     <button class="accordion-header w-full flex justify-between items-center text-left p-5 font-semibold">
                         <span>Se eu virar MEI, perco o Seguro-Desemprego ou Bolsa Família?</span>
-                        <span class="text-2xl text-teal-500">+</span>
+                         <span class="text-2xl text-teal-500">+</span>
                     </button>
                     <div class="accordion-content">
                         <p class="p-5 pt-0 text-slate-600">Depende. Quem recebe Seguro-Desemprego pode ter o benefício suspenso ao se formalizar. Já o Bolsa Família não é cancelado automaticamente, mas a nova renda será considerada na atualização cadastral. É essencial analisar caso a caso.</p>
                     </div>
                 </div>
-                <div class="accordion-item bg-white rounded-lg shadow-sm">
+                 <div class="accordion-item bg-white rounded-lg shadow-sm">
                     <button class="accordion-header w-full flex justify-between items-center text-left p-5 font-semibold">
                         <span>Como separar o dinheiro da empresa do meu dinheiro pessoal?</span>
-                        <span class="text-2xl text-teal-500">+</span>
+                         <span class="text-2xl text-teal-500">+</span>
                     </button>
                     <div class="accordion-content">
                         <p class="p-5 pt-0 text-slate-600">Este é o maior desafio! A melhor prática é abrir uma conta bancária PJ (muitos bancos digitais oferecem contas gratuitas para MEI) e definir um valor fixo mensal para seu "salário" (pró-labore). Todo o resto é da empresa. Oferecemos planilhas e dicas para te ajudar nisso!</p>
                     </div>
                 </div>
-                <div class="accordion-item bg-white rounded-lg shadow-sm">
+                 <div class="accordion-item bg-white rounded-lg shadow-sm">
                     <button class="accordion-header w-full flex justify-between items-center text-left p-5 font-semibold">
                         <span>E se eu não pagar o DAS em dia?</span>
-                        <span class="text-2xl text-teal-500">+</span>
+                         <span class="text-2xl text-teal-500">+</span>
                     </button>
                     <div class="accordion-content">
                         <p class="p-5 pt-0 text-slate-600">O atraso gera juros e multa. Se a inadimplência persistir, você pode perder o direito aos benefícios previdenciários e até ter seu CNPJ cancelado pela Receita Federal. É fundamental manter o pagamento em dia para garantir sua tranquilidade.</p>
                     </div>
                 </div>
-            </div>
+             </div>
         </section>
 
-       <section id="contato" class="bg-teal-700 text-white text-center p-12 rounded-xl shadow-2xl scroll-mt-20">
-    <!-- Container para o layout de colunas -->
-    <div class="container mx-auto grid md:grid-cols-2 gap-8 items-center">
-        <!-- Coluna de Texto e Botão -->
-        <div class="md:text-left">
-            <h2 class="text-4xl font-bold mb-4">Pronto para dar o próximo passo?</h2>
-            <p class="max-w-2xl md:max-w-full mx-auto mb-8 text-lg">
-                A formalização é o início de uma jornada de sucesso. Deixe a Percy Contabilidade te guiar pelo caminho certo,
-                evitando dores de cabeça e garantindo que você aproveite todos os benefícios de ser MEI.
+        <!-- Nova Seção: CHEGUEI, SOU MEI! UMA EVOLUÇÃO -->
+        <section id="evolucao_mei" class="mb-16 md:mb-24 scroll-mt-20 bg-teal-50 p-8 rounded-xl shadow-lg">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-teal-800">CHEGUEI, SOU MEI! UMA EVOLUÇÃO.</h2>
+            <p class="text-center text-lg text-slate-600 max-w-3xl mx-auto mb-10">
+                Parabéns por ser MEI ou por estar buscando essa evolução! Agora que você já entende o básico, vamos aprofundar em como gerenciar e fazer seu negócio crescer ainda mais, sem dores de cabeça.
             </p>
-            <a href="https://wa.me/5521985518475?text=Olá%2C%20fale%20agora%20sobre%20MEI!" target="_blank" class="inline-block bg-white text-teal-700 font-bold py-3 px-8 rounded-lg hover:bg-stone-100 transition-all duration-300 transform hover:scale-105 shadow-xl text-lg">
-                Fale com um Especialista
-            </a>
-        </div>
-        <!-- Coluna da Imagem -->
-        <div class="mt-8 md:mt-0">
-            <img src="soumeicertificado.jpeg" alt="Homem sorrindo segurando Certificado da Condição de Microempreendedor Individual" class="w-full h-auto rounded-lg shadow-lg mx-auto max-w-[240px]">
-        </div>
-    </div>
-</section>
+
+            <div class="space-y-10">
+                <!-- 1. Estatística MEI no Brasil -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
+                    <h3 class="text-2xl font-bold mb-4 text-teal-700">1. CHEGUEI, SOU MEI! E Não Estou Sozinho: A Força do MEI no Brasil!</h3>
+                    <p class="text-slate-600">
+                        O MEI é um fenômeno no Brasil! Desde sua criação, milhões de brasileiros saíram da informalidade e hoje contribuem ativamente para a economia. Segundo dados do Portal do Empreendedor e do Governo Federal, o número de Microempreendedores Individuais cresce exponencialmente, mostrando a força e o impacto desse modelo. Essa formalização não só traz dignidade e direitos para o empreendedor, mas também impulsiona o desenvolvimento local e nacional.
+                    </p>
+                </div>
+
+                <!-- 2. Obrigações do MEI -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
+                    <h3 class="text-2xl font-bold mb-4 text-teal-700">2. CHEGUEI, SOU MEI! Minhas Responsabilidades para Continuar Voando!</h3>
+                    <p class="text-slate-600">
+                        Ok, você já sabe que ser MEI traz muitos benefícios. Mas para continuar voando alto, é crucial manter suas obrigações em dia. As principais são:
+                    </p>
+                    <ul class="list-disc list-inside text-slate-600 mt-4 space-y-2">
+                        <li><strong>Pagamento Mensal do DAS:</strong> Aquela guia única que já falamos! É por meio dela que você contribui para o INSS e paga seus impostos. Manter o DAS em dia é a chave para não perder seus benefícios previdenciários e evitar multas.</li>
+                        <li><strong>Declaração Anual de Faturamento (DASN-SIMEI):</strong> Todo ano, até 31 de maio, você precisa informar à Receita Federal o quanto faturou no ano anterior. Mesmo que não tenha faturado nada, a declaração é obrigatória!</li>
+                        <li><strong>Emissão de Nota Fiscal:</strong> Não é sempre obrigatório, mas se você vender ou prestar serviço para outra empresa (Pessoa Jurídica), a NF é essencial. Para Pessoa Física, só se o cliente exigir.</li>
+                    </ul>
+                    <p class="text-slate-600 mt-4">Manter essa rotina simples garante sua tranquilidade e a legalidade do seu negócio.</p>
+                </div>
+
+                <!-- 3. Como realizar a análise MEI x IR -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
+                    <h3 class="text-2xl font-bold mb-4 text-teal-700">3. CHEGUEI, SOU MEI! Como Não Me Enrolar com o Imposto de Renda!</h3>
+                    <p class="text-slate-600">
+                        Essa é uma das maiores dúvidas! Como MEI, você é uma Pessoa Jurídica (PJ), mas para o Imposto de Renda, seus rendimentos são declarados na sua Pessoa Física (PF). O segredo é entender que nem todo o seu faturamento é 'lucro' para o Leão. Uma parte é considerada isenta de imposto, e outra pode ser tributável, dependendo de como você organiza suas finanças e comprova suas despesas. É aqui que a organização faz toda a diferença!
+                    </p>
+                </div>
+
+                <!-- 4. Regra cálculo do rendimento MEI no IR -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
+                    <h3 class="text-2xl font-bold mb-4 text-teal-700">4. CHEGUEI, SOU MEI! A Regra de Ouro do Lucro no Imposto de Renda!</h3>
+                    <p class="text-slate-600">
+                        Para o cálculo do Imposto de Renda da Pessoa Física (DIRPF), a Receita Federal presume um percentual mínimo de lucro sobre a sua receita bruta anual, que é isento de tributação. Esse percentual varia de acordo com a sua atividade:
+                    </p>
+                    <ul class="list-disc list-inside text-slate-600 mt-4 space-y-2">
+                        <li><strong>8%</strong> para atividades de <strong>Comércio, Indústria e Transporte de Cargas</strong>.</li>
+                        <li><strong>16%</strong> para atividades de <strong>Transporte de Passageiros</strong>.</li>
+                        <li><strong>32%</strong> para atividades de <strong>Prestação de Serviços</strong>.</li>
+                    </ul>
+                    <p class="text-slate-600 mt-4">
+                        O restante do faturamento (receita bruta - despesas comprovadas - parcela isenta) é considerado lucro tributável e deve ser declarado como 'Rendimento Tributável Recebido de Pessoa Jurídica' na sua DIRPF. Se você tiver um contador e comprovar mais despesas, a parcela tributável pode ser menor!
+                    </p>
+                </div>
+
+                <!-- 5. Exemplos de presunção do lucro do MEI -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
+                    <h3 class="text-2xl font-bold mb-4 text-teal-700">5. CHEGUEI, SOU MEI! Na Prática: Como Calcular Meu Lucro no IR!</h3>
+                    <p class="text-slate-600">
+                        Vamos ver com exemplos para ficar mais claro:
+                    </p>
+                    <ul class="list-disc list-inside text-slate-600 mt-4 space-y-2">
+                        <li><strong>Exemplo 1 (Serviços):</strong> Se você é um designer (serviço) e faturou R$ 30.000 no ano.
+                            <ul class="list-circle list-inside ml-6">
+                                <li>Parcela Isenta (32%): R$ 30.000 x 0,32 = R$ 9.600.</li>
+                                <li>Se você não tem despesas comprovadas, o restante (R$ 30.000 - R$ 9.600 = R$ 20.400) é considerado lucro tributável.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Exemplo 2 (Comércio):</strong> Se você vende roupas (comércio) e faturou R$ 50.000 no ano.
+                            <ul class="list-circle list-inside ml-6">
+                                <li>Parcela Isenta (8%): R$ 50.000 x 0,08 = R$ 4.000.</li>
+                                <li>Se você não tem despesas comprovadas, o restante (R$ 50.000 - R$ 4.000 = R$ 46.000) é considerado lucro tributável.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="text-slate-600 mt-4">
+                        É por isso que ter um controle financeiro e, se possível, um contador, faz toda a diferença para otimizar seu Imposto de Renda!
+                    </p>
+                </div>
+
+                <!-- 6. Como lançar na DIRPF -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
+                    <h3 class="text-2xl font-bold mb-4 text-teal-700">6. CHEGUEI, SOU MEI! Onde Coloco Isso na Minha Declaração?</h3>
+                    <p class="text-slate-600">
+                        A declaração do MEI na DIRPF (Declaração de Imposto de Renda Pessoa Física) é feita em campos específicos:
+                    </p>
+                    <ul class="list-disc list-inside text-slate-600 mt-4 space-y-2">
+                        <li><strong>Rendimentos Isentos e Não Tributáveis:</strong> Aqui você lança a parcela do seu lucro que é isenta de imposto (aqueles 8%, 16% ou 32% do seu faturamento bruto, dependendo da sua atividade).</li>
+                        <li><strong>Rendimentos Tributáveis Recebidos de Pessoa Jurídica:</strong> Se o seu lucro ultrapassar a parcela isenta e você não tiver despesas comprovadas que justifiquem a isenção total, o valor excedente deve ser lançado aqui.</li>
+                    </ul>
+                    <p class="text-slate-600 mt-4">
+                        É fundamental preencher corretamente para não cair na malha fina! A Percy Contabilidade pode te ajudar a fazer isso sem dor de cabeça.
+                    </p>
+                </div>
+
+                <!-- 7. Cuidados que se deve ter por MEI -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
+                    <h3 class="text-2xl font-bold mb-4 text-teal-700">7. CHEGUEI, SOU MEI! Fique Ligado: Cuidados Essenciais para Não Cair em Cilada!</h3>
+                    <p class="text-slate-600">
+                        Para que sua jornada MEI seja só sucesso, fique atento a alguns pontos cruciais:
+                    </p>
+                    <ul class="list-disc list-inside text-slate-600 mt-4 space-y-2">
+                        <li><strong>Não Misture Finanças:</strong> Tenha uma conta bancária separada para o seu MEI e registre todas as entradas e saídas do negócio.</li>
+                        <li><strong>Atenção ao Limite de Faturamento:</strong> Monitore seu faturamento para não ultrapassar o limite anual (R$ 81.000 ou o novo, se aprovado) e acabar desenquadrado sem planejamento.</li>
+                        <li><strong>Pague o DAS em Dia:</strong> Atrasos geram multas e podem suspender seus benefícios previdenciários.</li>
+                        <li><strong>Faça a DASN-SIMEI Anual:</strong> Não esqueça de declarar seu faturamento bruto todo ano, mesmo que seja zero.</li>
+                        <li><strong>Emita NF Quando Obrigatório:</strong> Para vendas ou serviços para outras empresas, a NF é sua prova fiscal.</li>
+                        <li><strong>Cuidado com Golpes:</strong> A formalização do MEI é gratuita no Portal do Empreendedor. Desconfie de sites ou empresas que cobram para abrir seu MEI ou para emitir guias.</li>
+                    </ul>
+                    <p class="text-slate-600 mt-4">
+                        Seguindo esses cuidados, você garante a saúde e o crescimento do seu negócio MEI!
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Fim da Nova Seção -->
+
+        <section id="contato" class="bg-teal-700 text-white text-center p-12 rounded-xl shadow-2xl scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-4">Pronto para dar o próximo passo?</h2>
+            <p class="max-w-2xl mx-auto mb-8">A formalização é o início de uma jornada de sucesso. Deixe a Percy Contabilidade te guiar pelo caminho certo, evitando dores de cabeça e garantindo que você aproveite todos os benefícios de ser MEI.</p>
+            <a href="https://www.percycontabilidade.com.br" target="_blank" class="bg-white text-teal-700 font-bold py-3 px-8 rounded-lg hover:bg-stone-100 transition-colors">Fale com um Especialista</a>
+        </section>
 
     </main>
 
@@ -298,9 +391,10 @@
         <div class="container mx-auto px-6 py-8 text-center">
             <p>&copy; 2025 Percy Contabilidade. Todos os direitos reservados.</p>
             <p class="text-sm text-slate-400 mt-2">Este é um guia educativo. Para decisões sobre seu negócio, consulte sempre um contador.</p>
-            <div class="flex justify-center space-x-4 mt-4">
+            <div class="flex justify-center space-x-4 mt-4 text-lg">
                 <a href="https://www.instagram.com/percycontabilidade" target="_blank" class="hover:text-teal-400">Instagram</a>
-                <a href="https://www.facebook.com/percycontabilidade" target="_blank" class="hover:text-teal-400 transition-colors">Facebook</a>
+                <span class="text-slate-500">|</span>
+                <a href="https://www.facebook.com/percycontabilidade" target="_blank" class="hover:text-teal-400">Facebook</a>
                 <span class="text-slate-500">|</span>
                 <a href="https://www.youtube.com/@percycontabilidade" target="_blank" class="hover:text-teal-400">YouTube</a>
                 <span class="text-slate-500">|</span>
@@ -348,7 +442,7 @@
 
             document.querySelectorAll('#mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
+                     mobileMenu.classList.add('hidden');
                 });
             });
 
