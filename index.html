@@ -44,12 +44,14 @@
             box-shadow: 0 10px 15px -3px rgba(13, 148, 136, 0.2), 0 4px 6px -2px rgba(13, 148, 136, 0.1);
             border-color: #0d9488;
         }
+        /* Estilo aprimorado para destaque */
         .highlight-section {
-            background-color: #f0fdfa;
-            border-left: 4px solid #14b8a6;
+            background-color: #e0f2f7; /* Um azul-esverdeado claro mais distinto */
+            border-left: 6px solid #0d9488; /* Borda mais grossa e escura */
             padding: 1rem;
             margin-top: 1rem;
             border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Sombra sutil */
         }
         .accordion-content {
             max-height: 0;
@@ -97,12 +99,14 @@
         <section id="hero" class="text-center mb-16 md:mb-24">
             <h1 class="text-4xl md:text-6xl font-bold text-teal-800 mb-4">Descomplicando o MEI</h1>
             <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">Seu guia interativo para formalizar seu negócio com segurança e clareza. Descubra se o MEI é para você e comece sua jornada empreendedora hoje.</p>
+            <img src="https://placehold.co/800x400/0d9488/ffffff?text=Sua+Jornada+MEI+Descomplicada" alt="Pessoa confiante olhando para um caminho claro à frente, simbolizando a jornada MEI descomplicada." class="mx-auto mt-8 rounded-lg shadow-lg">
         </section>
 
         <section id="diagnostico" class="mb-16 md:mb-24 scroll-mt-20">
             <div class="bg-white p-8 rounded-xl shadow-lg">
                 <h2 class="text-3xl font-bold text-center mb-2">Diagnóstico Rápido: O MEI é para mim?</h2>
                 <p class="text-center text-slate-500 mb-8">Responda 3 perguntas e descubra em segundos se você pode se formalizar.</p>
+                <img src="https://placehold.co/400x250/14b8a6/ffffff?text=Descubra+Seu+Potencial+MEI" alt="Pessoa com um ponto de interrogação se transformando em um checkmark, simbolizando a descoberta do potencial MEI." class="mx-auto mb-8 rounded-lg shadow-md">
                 
                 <div id="quiz-container" class="space-y-6">
                     <div>
@@ -136,6 +140,11 @@
                     <p id="result-text"></p>
                 </div>
 
+                <!-- Botão "Limpar seleção" movido para cá -->
+                <div id="avatar-reset" class="text-center mt-4">
+                    <button class="text-sm text-teal-600 hover:underline">Limpar seleção</button>
+                </div>
+
                 <div class="mt-12 pt-8 border-t border-stone-200">
                      <h3 class="text-2xl font-bold text-center mb-6">Com qual perfil você mais se identifica?</h3>
                      <p class="text-center text-slate-500 mb-8">Clique em um perfil para ver como o MEI pode resolver dores específicas.</p>
@@ -156,9 +165,6 @@
                              <p class="text-sm text-slate-500">Precisa regularizar seus ganhos e garantir sua aposentadoria.</p>
                         </div>
                      </div>
-                     <div id="avatar-reset" class="text-center mt-4">
-                        <button class="text-sm text-teal-600 hover:underline">Limpar seleção</button>
-                     </div>
                 </div>
             </div>
         </section>
@@ -168,6 +174,7 @@
             <div class="grid md:grid-cols-2 gap-8 md:gap-12">
                 <div id="beneficios-col">
                     <h3 class="text-2xl font-semibold text-green-700 mb-6 text-center md:text-left">✅ Vantagens de ser MEI</h3>
+                    <img src="https://placehold.co/300x200/22c55e/ffffff?text=Benefícios+MEI" alt="Família feliz ou pessoa celebrando, simbolizando os benefícios do MEI." class="mx-auto mb-8 rounded-lg shadow-md">
                     <div class="space-y-4">
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="ana bruno carlos"><strong>Aposentadoria e Benefícios do INSS:</strong> Garanta seu futuro com auxílio-doença, salário-maternidade e pensão por morte.</div>
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="bruno"><strong>Emissão de Notas Fiscais:</strong> Venda para outras empresas e governos, aumentando sua credibilidade e oportunidades.</div>
@@ -177,7 +184,8 @@
                     </div>
                 </div>
                 <div id="obrigacoes-col">
-                    <h3 class="text-2xl font-semibold text-red-700 mb-6 text-center md:text-left">⚠️ Suas Responsabilidades</h3>
+                    <h3 class="text-2xl font-semibold text-amber-700 mb-6 text-center md:text-left">⚠️ Suas Responsabilidades</h3>
+                    <img src="https://placehold.co/300x200/fbbf24/ffffff?text=Obrigações+MEI" alt="Documentos organizados ou um calendário, simbolizando as obrigações do MEI." class="mx-auto mb-8 rounded-lg shadow-md">
                      <div class="space-y-4">
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="ana bruno carlos"><strong>Pagamento Mensal do DAS:</strong> Pague sua guia de imposto até o dia 20 de cada mês para manter os benefícios em dia.</div>
                         <div class="bg-white p-4 rounded-lg shadow-sm" data-avatar="carlos"><strong>Declaração Anual de Faturamento (DASN):</strong> Informe seu faturamento bruto do ano anterior, mesmo que seja zero, até 31 de maio.</div>
@@ -197,6 +205,7 @@
 
         <section id="jornada" class="mb-16 md:mb-24 scroll-mt-20">
             <h2 class="text-3xl font-bold text-center mb-12">Sua Jornada para se Tornar MEI</h2>
+            <img src="https://placehold.co/800x300/0d9488/ffffff?text=Jornada+MEI:+Passo+a+Passo" alt="Pessoa subindo uma escada ou trilha, simbolizando a jornada de formalização do MEI." class="mx-auto mb-8 rounded-lg shadow-md">
              <div class="relative">
                 <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-teal-200 -translate-y-1/2"></div>
                 <div class="grid md:grid-cols-4 gap-8">
@@ -226,6 +235,7 @@
 
         <section id="duvidas" class="mb-16 md:mb-24 scroll-mt-20">
              <h2 class="text-3xl font-bold text-center mb-12">Dúvidas Comuns e Medos Resolvidos</h2>
+             <img src="https://placehold.co/400x250/0d9488/ffffff?text=Dúvidas+Resolvidas" alt="Pessoa com expressão de alívio após entender algo complexo, simbolizando dúvidas resolvidas." class="mx-auto mb-8 rounded-lg shadow-md">
              <div class="max-w-3xl mx-auto space-y-4">
                 <div class="accordion-item bg-white rounded-lg shadow-sm">
                     <button class="accordion-header w-full flex justify-between items-center text-left p-5 font-semibold">
@@ -273,11 +283,13 @@
                 O Microempreendedor Individual (MEI) representa uma porta de entrada para a formalização e a evolução de muitos negócios no Brasil. Compreender suas obrigações e a forma como seus rendimentos se relacionam com o Imposto de Renda Pessoa Física (IRPF) é crucial para uma gestão financeira saudável e para evitar problemas com a Receita Federal.
                 <br><br>Este guia aborda os principais aspectos do MEI, desde estatísticas gerais até as regras específicas para a declaração de seus rendimentos no IRPF.
             </p>
+            <img src="https://placehold.co/800x400/14b8a6/ffffff?text=Sua+Evolução+MEI" alt="Pessoa evoluindo ou um gráfico de crescimento, simbolizando a evolução do MEI." class="mx-auto mb-8 rounded-lg shadow-md">
 
             <div class="space-y-10">
                 <!-- 1. Estatística MEI no Brasil -->
                 <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
                     <h3 class="text-2xl font-bold mb-4 text-teal-700">1. Estatística MEI no Brasil: A Força que Impulsiona!</h3>
+                    <img src="https://placehold.co/300x200/2dd4bf/ffffff?text=Estatísticas+MEI" alt="Gráfico de barras ou seta de crescimento, indicando o aumento de MEIs no Brasil." class="float-right ml-4 mb-4 rounded-lg shadow-sm">
                     <p class="text-slate-600">
                         O MEI tem sido um motor significativo para a formalização e o empreendedorismo no Brasil. Em 2022, o país contava com **14,6 milhões de Microempreendedores Individuais**, representando um crescimento de 1,5 milhão em relação a 2021. Esse número corresponde a **18,8% do total de ocupados formais**.
                     </p>
@@ -296,11 +308,12 @@
                 <!-- 2. Obrigações do MEI -->
                 <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
                     <h3 class="text-2xl font-bold mb-4 text-teal-700">2. Obrigações do MEI: Para Continuar Voando Alto!</h3>
+                    <img src="https://placehold.co/300x200/fbbf24/ffffff?text=Obrigações+em+Dia" alt="Checklist ou documentos organizados, simbolizando as obrigações do MEI em dia." class="float-right ml-4 mb-4 rounded-lg shadow-sm">
                     <p class="text-slate-600">
                         Para se manter regularizado, o MEI possui algumas obrigações essenciais que garantem sua tranquilidade e acesso aos benefícios:
                     </p>
                     <ul class="list-disc list-inside text-slate-600 mt-4 space-y-2">
-                        <li><strong>Pagamento Mensal do DAS (Documento de Arrecadação do Simples Nacional):</strong> O DAS é uma guia única que engloba os impostos (INSS, ISS e/ou ICMS) e deve ser paga até o dia 20 de cada mês. O valor varia conforme a atividade (comércio/indústria, serviços ou ambos).</li>
+                        <li><strong>Pagamento Mensal do DAS:</strong> O DAS é uma guia única que engloba os impostos (INSS, ISS e/ou ICMS) e deve ser paga até o dia 20 de cada mês.</li>
                         <li><strong>Emissão de Nota Fiscal:</strong> O MEI é obrigado a emitir Nota Fiscal quando vende produtos ou presta serviços para Pessoas Jurídicas (empresas). Para Pessoa Física, a emissão é opcional, a menos que o consumidor exija.</li>
                         <li><strong>Preenchimento do Relatório Mensal das Receitas Brutas:</strong> Embora o MEI esteja dispensado de contabilidade formal, é fundamental preencher mensalmente um relatório com as receitas brutas obtidas no mês anterior. Este relatório, juntamente com as notas fiscais de compras e vendas, deve ser guardado por 5 anos.</li>
                         <li><strong>Declaração Anual do Simples Nacional do Microempreendedor Individual (DASN-SIMEI):</strong> Esta declaração é obrigatória e deve ser entregue anualmente, até o dia 31 de maio do ano subsequente ao ano-calendário de referência. Nela, o MEI informa o faturamento bruto total do ano anterior, mesmo que não tenha havido faturamento. A DASN-SIMEI substitui a Declaração de Imposto de Renda de Pessoa Jurídica para o MEI.</li>
@@ -310,6 +323,7 @@
                 <!-- 3. Como realizar a análise MEI x IR -->
                 <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
                     <h3 class="text-2xl font-bold mb-4 text-teal-700">3. Como Realizar a Análise MEI x IRPF: Descomplicando o Leão!</h3>
+                    <img src="https://placehold.co/300x200/0d9488/ffffff?text=MEI+x+IRPF" alt="Balança ou pessoa analisando números, simbolizando a análise MEI x IRPF." class="float-right ml-4 mb-4 rounded-lg shadow-sm">
                     <p class="text-slate-600">
                         A relação entre o MEI e o Imposto de Renda Pessoa Física (IRPF) gera muitas dúvidas. É importante entender que o MEI, como Pessoa Jurídica, não declara IRPJ. Seus rendimentos são transferidos para a Pessoa Física do empreendedor e declarados na DIRPF, se houver obrigatoriedade.
                         <br><br>A análise envolve a separação do que é rendimento isento e não tributável e o que pode ser considerado rendimento tributável na sua DIRPF. Para isso, é crucial ter um controle rigoroso do faturamento bruto e das despesas comprovadas do seu negócio MEI.
@@ -319,6 +333,7 @@
                 <!-- 4. Regra cálculo do rendimento MEI no IR (Presunção do Lucro) -->
                 <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
                     <h3 class="text-2xl font-bold mb-4 text-teal-700">4. Regra de Cálculo do Rendimento MEI no IRPF (Presunção do Lucro): A Regra de Ouro!</h3>
+                    <img src="https://placehold.co/300x200/14b8a6/ffffff?text=Cálculo+Simplificado" alt="Calculadora ou fórmula, representando o cálculo simplificado do rendimento MEI no IR." class="float-right ml-4 mb-4 rounded-lg shadow-sm">
                     <p class="text-slate-600">
                         A Receita Federal estabelece um percentual de presunção de lucro sobre a receita bruta do MEI, que é considerado rendimento isento e não tributável na DIRPF. O restante do lucro, após a dedução das despesas comprovadas, é considerado rendimento tributável.
                     </p>
@@ -340,6 +355,7 @@
                 <!-- 5. O que a Receita Federal diz? (NOVA SUBSEÇÃO) -->
                 <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
                     <h3 class="text-2xl font-bold mb-4 text-teal-700">5. O que a Receita Federal Diz? Entenda a Legislação!</h3>
+                    <img src="https://placehold.co/300x200/2dd4bf/ffffff?text=Legislação+Clara" alt="Edifício da Receita Federal ou selo oficial, representando a legislação clara." class="float-right ml-4 mb-4 rounded-lg shadow-sm">
                     <p class="text-slate-600">
                         A Receita Federal, por meio de suas normativas (como a Lei Complementar nº 123/2006 e a Resolução CGSN nº 140/2018), estabelece as regras para o MEI, incluindo a forma de tributação e a declaração de seus rendimentos.
                     </p>
@@ -354,6 +370,7 @@
                 <!-- 6. Exemplos de presunção do lucro do MEI -->
                 <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
                     <h3 class="text-2xl font-bold mb-4 text-teal-700">6. Exemplos de Presunção do Lucro do MEI: Na Prática!</h3>
+                    <img src="https://placehold.co/300x200/0d9488/ffffff?text=Exemplos+Práticos" alt="Duas cenas contrastantes de antes e depois, mostrando exemplos práticos." class="float-right ml-4 mb-4 rounded-lg shadow-sm">
                     <p class="text-slate-600">
                         Vamos ilustrar com exemplos práticos para você entender melhor como o cálculo funciona:
                     </p>
@@ -386,6 +403,7 @@
                 <!-- 7. Como lançar na DIRPF -->
                 <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
                     <h3 class="text-2xl font-bold mb-4 text-teal-700">7. Como Lançar os Rendimentos do MEI na DIRPF: Passo a Passo!</h3>
+                    <img src="https://placehold.co/300x200/14b8a6/ffffff?text=Declarando+o+IRPF" alt="Pessoa usando um computador para preencher formulários, simbolizando a declaração do IRPF." class="float-right ml-4 mb-4 rounded-lg shadow-sm">
                     <p class="text-slate-600">
                         Para lançar os rendimentos do MEI na Declaração de Imposto de Renda Pessoa Física (DIRPF), siga os passos gerais:
                     </p>
@@ -416,6 +434,7 @@
                 <!-- 8. Cuidados do MEI -->
                 <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
                     <h3 class="text-2xl font-bold mb-4 text-teal-700">8. Cuidados Essenciais do MEI: Sua Tranquilidade em Primeiro Lugar!</h3>
+                    <img src="https://placehold.co/300x200/2dd4bf/ffffff?text=Cuidados+Essenciais" alt="Escudo ou pessoa sentindo-se segura, simbolizando os cuidados essenciais do MEI." class="float-right ml-4 mb-4 rounded-lg shadow-sm">
                     <p class="text-slate-600">
                         Para garantir a saúde financeira e a conformidade legal do seu MEI, alguns cuidados são essenciais:
                     </p>
@@ -443,6 +462,7 @@
             <p class="text-center text-lg text-slate-600 max-w-3xl mx-auto mb-10">
                 Se você é MEI em Nova Iguaçu/RJ, essa informação é **CRUCIAL** para você! A Prefeitura estabeleceu um canal oficial de comunicação eletrônica com os contribuintes: o **e-Notifica**. Ele é a sua caixa de entrada para avisos importantes, intimações e até autos de infração. Ficar de fora pode gerar dor de cabeça e penalidades!
             </p>
+            <img src="https://placehold.co/400x250/0d9488/ffffff?text=e-Notifica+Nova+Iguaçu" alt="Smartphone com notificação ou mapa de Nova Iguaçu, simbolizando o e-Notifica." class="mx-auto mb-8 rounded-lg shadow-md">
             <p class="text-slate-600 mt-4 font-semibold text-red-600">
                 Atenção: A data limite para atualização cadastral no e-Notifica é 2 de setembro! Não perca o prazo!
             </p>
@@ -471,6 +491,7 @@
         <section id="contato" class="bg-teal-700 text-white text-center p-12 rounded-xl shadow-2xl scroll-mt-20">
             <h2 class="text-4xl font-bold mb-4">Pronto para dar o próximo passo?</h2>
             <p class="max-w-2xl mx-auto mb-8">A formalização é o início de uma jornada de sucesso. Deixe a Percy Contabilidade te guiar pelo caminho certo, evitando dores de cabeça e garantindo que você aproveite todos os benefícios de ser MEI.</p>
+            <img src="https://placehold.co/800x400/0d9488/ffffff?text=Comece+Sua+Jornada+Agora" alt="Pessoas apertando as mãos ou um grupo celebrando o sucesso, simbolizando o próximo passo e a parceria." class="mx-auto mt-8 rounded-lg shadow-lg">
             <a href="https://www.percycontabilidade.com.br" target="_blank" class="bg-white text-teal-700 font-bold py-3 px-8 rounded-lg hover:bg-stone-100 transition-colors">Fale com um Especialista</a>
         </section>
 
@@ -594,8 +615,10 @@
                 
                 sectionsToHighlight.forEach(el => {
                     el.classList.remove('highlight-section');
-                    if (selectedAvatar && el.dataset.avatar.includes(selectedAvatar)) {
+                    // Check if selectedAvatar is one of the avatars in the data-avatar attribute
+                    if (selectedAvatar && el.dataset.avatar.split(' ').includes(selectedAvatar)) {
                         el.classList.add('highlight-section');
+                        console.log('Highlighted:', el); // Para depuração
                     }
                 });
             }
