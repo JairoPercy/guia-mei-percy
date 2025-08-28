@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sua Jornada MEI: Da Frustração ao Sucesso | Percy Contabilidade</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -79,7 +80,7 @@
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#" class="text-xl font-bold text-teal-700 flex items-center space-x-2">
-                <img src="logopercyatual.jpeg" alt="Logo Percy Contabilidade" class="h-16 md:h-20 w-auto rounded-lg">
+                <img src="https://placehold.co/100x100/94A3B8/FFFFFF?text=Logo" alt="Logo Percy Contabilidade" class="h-16 md:h-20 w-auto rounded-lg">
             </a>
             <div class="hidden md:block">
                 <a href="https://wa.me/5521985518475?text=Olá%2C%20quero%20transformar%20meu%20negócio%20MEI%20e%20alcançar%20meus%20sonhos!" target="_blank" class="bg-teal-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-teal-700 transition-colors shadow-md">Fale com um Especialista</a>
@@ -136,7 +137,7 @@
                     <h3 class="font-bold text-xl mb-2 text-center">A Burocracia te Paralisa?</h3>
                     <p class="text-slate-600 text-center">Você se sente sobrecarregado e com medo de cometer erros nas declarações, impostos e formalização, perdendo seu precioso tempo.</p>
                 </div>
-                 <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-400">
+                   <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-400">
                     <div class="text-4xl text-red-600 mb-4 text-center">🧾</div>
                     <h3 class="font-bold text-xl mb-2 text-center">Contas Pessoais x do Negócio?</h3>
                     <p class="text-slate-600 text-center">Misturar as finanças pessoais e empresariais pode gerar caos e impedir que você veja o real lucro do seu trabalho.</p>
@@ -324,14 +325,14 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Script simples para o botão de menu mobile (não funcional nesta landing page, mas mantido para referência)
+        // Script simples para o botão de menu mobile
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             if (mobileMenuButton) {
                 mobileMenuButton.addEventListener('click', () => {
-                    alert('Nesta landing page, o menu mobile não tem funcionalidade interativa. O foco é a conversão direta.');
+                    // Substituído o 'alert()' por 'console.log()' para evitar o bloqueio da tela.
+                    console.log('Nesta landing page, o menu mobile não tem funcionalidade interativa. O foco é a conversão direta.');
                 });
             }
         });
@@ -359,19 +360,16 @@
         function renderChart() {
             const ctx = document.getElementById('meiGrowthChart').getContext('2d');
 
-            // Dados aproximados baseados nos múltiplos fornecidos no resumo_meis_limite_2024
-            // 2024: 570.000
-            // 2023: 570.000 / 30 = 19.000
-            // 2022: 570.000 / 270 = ~2.111 (arredondado para 2.100 para simplicidade visual)
+            // Dados aproximados baseados em levantamentos de 2024
             const data = {
                 labels: ['2022', '2023', '2024'],
                 datasets: [{
                     label: 'MEIs que Ultrapassaram o Limite (aprox.)',
-                    data: [2100, 19000, 570000], // Valores em unidades, o Chart.js escalará
+                    data: [2100, 19000, 570000],
                     backgroundColor: [
                         'rgba(10, 207, 131, 0.8)', // Um verde-água vibrante
                         'rgba(19, 173, 139, 0.8)', // Um verde-água um pouco mais escuro
-                        'rgba(17, 94, 89, 0.8)'   // Um verde-água mais profundo (teal-800)
+                        'rgba(17, 94, 89, 0.8)'    // Um verde-água mais profundo (teal-800)
                     ],
                     borderColor: [
                         'rgba(10, 207, 131, 1)',
