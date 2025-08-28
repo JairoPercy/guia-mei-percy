@@ -27,452 +27,202 @@
             text-align: center;
         }
         .subsection-title {
-            font-size: 1.5rem; /* text-2xl */
+            font-size: 1.875rem; /* text-3xl */
             font-weight: 700; /* font-bold */
-            color: #134e4a; /* teal-900 */
+            color: #064e3b; /* green-900 */
             margin-top: 2rem;
             margin-bottom: 1rem;
-            border-bottom: 2px solid #2dd4bf; /* teal-400 */
-            padding-bottom: 0.5rem;
         }
         .card {
-            background-color: #ffffff;
+            background-color: #f0fdf4; /* green-50 */
+            border: 1px solid #d1fae5; /* green-200 */
             border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             padding: 1.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
         }
-        .card-title {
+        .card h3 {
             font-size: 1.25rem; /* text-xl */
             font-weight: 600; /* font-semibold */
-            color: #0f766e; /* teal-700 */
+            color: #115e59; /* teal-800 */
             margin-bottom: 0.75rem;
         }
-        .btn-primary {
-            background-color: #0d9488; /* teal-600 */
-            color: #ffffff;
-            font-weight: 700; /* font-bold */
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem; /* rounded-lg */
-            transition: background-color 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #0f766e; /* teal-700 */
-        }
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-        .feature-list li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
+        .card p {
+            font-size: 1rem; /* text-base */
             color: #334155; /* slate-700 */
-        }
-        .feature-list li svg {
-            margin-right: 0.5rem;
-            color: #0d9488; /* teal-600 */
-        }
-        .faq-item {
-            background-color: #f0fdfa; /* teal-50 */
-            border-radius: 0.5rem;
-            margin-bottom: 0.75rem;
-            overflow: hidden;
-            border: 1px solid #99f6e4; /* teal-200 */
-        }
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 1.25rem;
-            font-weight: 600;
-            color: #0f766e; /* teal-700 */
-            cursor: pointer;
-            background-color: #ccfbf1; /* teal-100 */
-            border-bottom: 1px solid #99f6e4; /* teal-200 */
-        }
-        .faq-question:hover {
-            background-color: #a7f3d0; /* teal-200 */
-        }
-        .faq-question svg {
-            transition: transform 0.3s ease-in-out;
-        }
-        .faq-question.active svg {
-            transform: rotate(180deg);
-        }
-        .faq-answer {
-            padding: 0 1.25rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
-            color: #475569; /* slate-600 */
-        }
-        .faq-answer.open {
-            max-height: 500px; /* Adjust as needed for content */
-            padding-top: 1rem;
-            padding-bottom: 1.25rem;
-        }
-        .image-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        /* Estilos específicos para o gráfico */
-        .chart-container {
-            background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            max-width: 700px;
-            width: 100%;
-            margin: 2rem auto; /* Centraliza e adiciona margem */
-            box-sizing: border-box;
-        }
-        .chart-container canvas {
-            max-width: 100%;
-            height: auto;
         }
     </style>
 </head>
-<body class="bg-stone-50 text-slate-800">
+<body class="bg-gray-50 text-slate-700">
 
-    <header class="bg-teal-700 text-white py-4 shadow-lg">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm py-4">
         <div class="container flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Guia MEI | Percy Contabilidade</h1>
-            <a href="https://wa.me/5521985518475?text=Olá%2C%20quero%20descomplicar%20meu%20MEI%20com%20a%20Percy%20Contabilidade!" target="_blank" class="btn-primary">Fale Conosco</a>
+            <h1 class="text-2xl font-bold text-teal-700">Percy Contabilidade</h1>
+            <a href="#chart" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-green-700 transition duration-300">
+                Ver Faturamento
+            </a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-teal-500 to-green-600 text-white py-20 px-4 text-center">
+        <div class="container">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">Guia Interativo para o MEI</h1>
+            <p class="mt-4 text-lg sm:text-xl font-light opacity-90">Tudo o que você precisa saber para se manter em dia com a sua empresa.</p>
         </div>
     </header>
 
-    <main class="container py-8">
-
-        <section id="introducao" class="mb-12 text-center">
-            <h2 class="section-title">Descomplique seu MEI e Conquiste a Liberdade!</h2>
-            <p class="text-lg text-slate-700 mb-6">
-                Bem-vindo ao seu guia completo sobre o Microempreendedor Individual (MEI)!
-                Aqui na Percy Contabilidade, acreditamos que a informação clara é o primeiro passo para o sucesso.
-                Navegue pelas seções e descubra como formalizar seu negócio, aproveitar os benefícios e crescer com segurança.
-            </p>
-            <div class="image-container">
-                <img src="logopercyatual.jpeg" alt="Logo Percy Contabilidade">
-            </div>
-        </section>
-
-        <section id="diagnostico-rapido" class="mb-12 card">
-            <h3 class="subsection-title">1. Diagnóstico Rápido: O MEI é Para Você?</h3>
-            <p class="text-slate-600 mb-4">
-                Antes de tudo, vamos verificar se o MEI é o enquadramento ideal para o seu negócio. Responda rápido:
-            </p>
-            <ul class="list-disc list-inside text-slate-700 space-y-2 mb-4">
-                <li>Seu faturamento anual é de até R$ 81.000,00? (Atenção: há um projeto para R$ 130.000,00!)</li>
-                <li>Você não é sócio ou administrador de outra empresa?</li>
-                <li>Você terá no máximo 1 (um) funcionário?</li>
-                <li>Sua atividade está na lista de atividades permitidas para o MEI? (Exclui profissões regulamentadas como médico, advogado, etc.)</li>
-            </ul>
-            <p class="text-slate-600">
-                Se a resposta para a maioria for "sim", o MEI pode ser o seu caminho!
-            </p>
-        </section>
-
-        <section id="beneficios-vs-obrigacoes" class="mb-12 card">
-            <h3 class="subsection-title">2. Benefícios x Obrigações: O Equilíbrio do MEI</h3>
-            <p class="text-slate-600 mb-4">
-                Ser MEI é ter acesso a um mundo de vantagens, mas também implica em algumas responsabilidades.
-            </p>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h4 class="card-title">Benefícios Incríveis:</h4>
-                    <ul class="feature-list">
-                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Aposentadoria e Auxílios (Doença, Maternidade)</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>CNPJ e Emissão de Notas Fiscais</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Acesso a Crédito Facilitado</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Baixo Custo Mensal (DAS)</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Paz de Espírito e Credibilidade</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="card-title">Suas Obrigações Simples:</h4>
-                    <ul class="feature-list">
-                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Pagar o DAS mensalmente (até o dia 20)</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Declarar o faturamento anual (DASN-SIMEI)</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Manter o controle das receitas e despesas</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Emitir NF para Pessoas Jurídicas (se for o caso)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="jornada-mei" class="mb-12 card">
-            <h3 class="subsection-title">3. Sua Jornada para se Tornar MEI</h3>
-            <p class="text-slate-600 mb-4">
-                O processo é mais simples do que você imagina! Siga estes passos ou conte com a Percy Contabilidade para te guiar:
-            </p>
-            <ol class="list-decimal list-inside text-slate-700 space-y-2">
-                <li>**Verifique os Requisitos:** Certifique-se de que você se enquadra nos critérios do MEI.</li>
-                <li>**Consulte as Atividades Permitidas (CNAE):** Encontre a Classificação Nacional de Atividades Econômicas que melhor se encaixa no seu negócio.</li>
-                <li>**Acesse o Portal do Empreendedor:** Faça seu cadastro online de forma gratuita.</li>
-                <li>**Obtenha o CCMEI:** Após o cadastro, você terá seu Certificado da Condição de Microempreendedor Individual com seu CNPJ.</li>
-                <li>**Alvará de Funcionamento:** Em geral, o MEI é dispensado de alvará, mas verifique as regras do seu município.</li>
-            </ol>
-            <div class="image-container">
-                <img src="1_PROFISSIONAL-AUTONOMO-ATENCAO.jpg" alt="Profissional Autônomo Atenção">
-            </div>
-        </section>
-
-        <section id="duvidas-comuns" class="mb-12 card">
-            <h3 class="subsection-title">4. Dúvidas Comuns e Medos Resolvidos</h3>
-            <p class="text-slate-600 mb-4">
-                É normal ter perguntas! Reunimos as dúvidas mais frequentes para te ajudar.
-            </p>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>O MEI pode ter nome fantasia?</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sim! Ao se formalizar, você pode escolher um nome fantasia para o seu negócio, que é como ele será conhecido publicamente. O nome empresarial será seu nome completo seguido do seu CPF.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Posso contratar um funcionário como MEI?</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sim, o MEI pode contratar um funcionário, mas apenas um. Ele deve receber o salário mínimo ou o piso salarial da categoria.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Se eu for MEI, perco o Bolsa Família ou Seguro-Desemprego?</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>O Bolsa Família não é cancelado automaticamente, mas a renda do MEI será considerada na atualização cadastral. Já o Seguro-Desemprego é cancelado ao se formalizar como MEI, pois entende-se que você tem uma nova fonte de renda.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Como faço para emitir Nota Fiscal como MEI?</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>O MEI não é obrigado a emitir Nota Fiscal para pessoa física, a menos que o consumidor exija. Para pessoa jurídica (outra empresa), a emissão é obrigatória. O processo varia por estado e município, geralmente feito por meio de sistemas online da prefeitura ou SEFAZ.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>O MEI precisa de contador?</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>A lei não obriga o MEI a ter um contador. No entanto, o apoio de um profissional pode ser fundamental para garantir que todas as obrigações sejam cumpridas corretamente, evitar multas, auxiliar na emissão de notas, no acesso a crédito e no planejamento do crescimento do seu negócio.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="2_MAS-EXISTE-UM-CAMINHO.jpg" alt="Mas Existe um Caminho">
-            </div>
-        </section>
-
-        <section id="custos-mei" class="mb-12 card">
-            <h3 class="subsection-title">5. CHEGUEI, SOU MEI! E Não Gasto Muito Por Mês!</h3>
-            <p class="text-slate-600 mb-4">
-                Uma das maiores vantagens do MEI é o custo mensal fixo e reduzido, pago através do Documento de Arrecadação do Simples Nacional (DAS).
-            </p>
-            <ul class="list-disc list-inside text-slate-700 space-y-2 mb-4">
-                <li>O DAS unifica todos os impostos do MEI (INSS, ICMS/ISS).</li>
-                <li>O valor varia um pouco dependendo da sua atividade (comércio, indústria ou serviço).</li>
-                <li>Ele garante seus direitos previdenciários (aposentadoria, auxílios) e mantém seu CNPJ regular.</li>
-            </ul>
-            <p class="text-slate-600 font-bold mb-4">
-                A data de vencimento do DAS é sempre o dia 20 de cada mês.
-            </p>
-            <p class="text-slate-600 mb-4">
-                **Atenção para Débitos Parcelados:** Se você possui um parcelamento de débitos do MEI, a parcela desse parcelamento também vencerá no dia **20 de cada mês**. É crucial que você pague tanto o DAS mensal regular quanto a parcela do seu parcelamento para manter sua situação em dia e evitar a rescisão do acordo.
-            </p>
-            <div class="image-container">
-                <img src="4_MAIS-RENDA-MAIS-SEGURANCA.jpg" alt="Mais Renda Mais Segurança">
-            </div>
-        </section>
-
-        <section id="beneficios-incriveis" class="mb-12 card">
-            <h3 class="subsection-title">6. CHEGUEI, SOU MEI! Se Liga nos 7 Benefícios Incríveis Que Tenho!</h3>
-            <p class="text-slate-600 mb-4">
-                Além do baixo custo, ser MEI abre portas para muitas vantagens:
-            </p>
-            <ul class="list-disc list-inside text-slate-700 space-y-2">
-                <li>**Formalização Simplificada:** Processo rápido e gratuito pela internet.</li>
-                <li>**CNPJ Próprio:** Credibilidade e acesso a conta PJ.</li>
-                <li>**Benefícios Previdenciários:** Aposentadoria, auxílio-doença, salário-maternidade.</li>
-                <li>**Emissão de Notas Fiscais:** Venda para outras empresas e governos.</li>
-                <li>**Acesso a Crédito Facilitado:** Linhas de crédito com condições especiais.</li>
-                <li>**Baixa Carga Tributária:** Impostos unificados no DAS.</li>
-                <li>**Facilidade na Declaração Anual:** Processo simplificado.</li>
-            </ul>
-            <div class="image-container">
-                <img src="3_DIVERSIDADE-NO-MEI-E-POSSIVEL.jpg" alt="Diversidade no MEI é Possível">
-            </div>
-        </section>
-
-        <section id="evolucao-mei" class="mb-12 card">
-            <h3 class="subsection-title">7. CHEGUEI, SOU MEI! Uma Evolução Constante!</h3>
-            <p class="text-slate-600 mb-4">
-                O MEI é um ponto de partida, não um limite! Seu negócio pode e deve crescer.
-            </p>
-            <ul class="list-disc list-inside text-slate-700 space-y-2 mb-4">
-                <li>**Estatística MEI no Brasil:** O Brasil bateu recorde com mais de 11,5 milhões de MEIs ativos, mostrando a força do microempreendedorismo.</li>
-                <li>**Obrigações e Benefícios:** Entender suas obrigações garante que você aproveite 100% dos benefícios.</li>
-                <li>**MEI x Imposto de Renda Pessoa Física:** Mesmo sendo MEI, você pode precisar declarar IRPF. A Percy Contabilidade te orienta!</li>
-                <li>**Exemplos de Sucesso:** Muitos MEIs começaram pequenos e hoje são grandes empresas. O limite de R$ 81 mil é um degrau, não um teto.</li>
-                <li>**Novidades (Projeto de Lei):** Há um projeto de lei em tramitação para aumentar o limite anual do MEI para R$ 130.000,00! Fique atento!</li>
-                <li>**Cartão MEI Banco do Brasil:** Novo cartão com benefícios e acesso a capacitações gratuitas para impulsionar seu negócio.</li>
-            </ul>
-            <p class="text-slate-600 font-bold mt-4">
-                A frase "Cheguei! Sou MEI!" não é o fim, mas o início da sua jornada de sucesso e expansão, com a ambição de superar o limite de faturamento e migrar para ME do Simples Nacional, alcançando faturamentos acima de R$ 150 mil por ano!
-            </p>
-
-            <!-- INÍCIO DO CÓDIGO DO GRÁFICO -->
-            <div class="chart-container">
-                <h2 class="text-2xl md:text-3xl font-bold text-center mb-6 text-teal-800">
-                    Crescimento Exponencial: MEIs que Superam o Limite de Faturamento!
-                </h2>
-                <canvas id="meiGrowthChart"></canvas>
-                <p class="text-sm text-slate-500 text-center mt-4">
-                    Fonte: Dados baseados em levantamentos de 2024.
+    <!-- Main Content -->
+    <main class="container py-12">
+        <!-- 1. O que é MEI? -->
+        <section id="what-is-mei">
+            <h2 class="section-title">1. O que é MEI?</h2>
+            <div class="card">
+                <p>
+                    O Microempreendedor Individual (MEI) é uma categoria empresarial para profissionais que trabalham por conta própria e faturam até R$ 81 mil por ano. Ao se formalizar, você adquire um CNPJ, pode emitir notas fiscais e tem acesso a benefícios previdenciários, como aposentadoria e auxílio-doença.
                 </p>
             </div>
-            <!-- FIM DO CÓDIGO DO GRÁFICO -->
+        </section>
 
-            <div class="image-container">
-                <img src="image_ffbab4.jpg" alt="Cheguei Sou MEI">
+        <!-- 2. Requisitos para ser MEI -->
+        <section id="requirements">
+            <h2 class="section-title mt-12">2. Requisitos para ser MEI</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3>Faturamento Anual</h3>
+                    <p>Seu faturamento deve ser de, no máximo, R$ 81.000,00 por ano. Se for proporcional, o limite é de R$ 6.750,00 por mês.</p>
+                </div>
+                <div class="card">
+                    <h3>Atividade</h3>
+                    <p>Sua atividade precisa constar na <a href="http://cnae.ibge.gov.br/" target="_blank" class="text-teal-600 hover:text-teal-800 font-semibold underline">tabela de ocupações permitidas</a> para o MEI.</p>
+                </div>
+                <div class="card">
+                    <h3>Sócios e Outras Empresas</h3>
+                    <p>Você não pode ser sócio ou administrador de outra empresa nem ter filial.</p>
+                </div>
+                <div class="card">
+                    <h3>Empregados</h3>
+                    <p>É permitido contratar apenas um funcionário, que deve receber o salário-mínimo ou o piso da categoria.</p>
+                </div>
             </div>
         </section>
 
-        <section id="e-notifica" class="mb-12 card">
-            <h3 class="subsection-title">8. e-Notifica Nova Iguaçu: Não Seja Pego de Surpresa!</h3>
-            <p class="text-slate-600 mb-4">
-                Para MEIs e empresas de Nova Iguaçu, o e-Notifica é um canal de comunicação oficial e obrigatório da Prefeitura.
-            </p>
-            <ul class="list-disc list-inside text-slate-700 space-y-2 mb-4">
-                <li>**O que é:** Sistema para recebimento de comunicações e intimações fiscais.</li>
-                <li>**Obrigatoriedade:** Empresas e MEIs de Nova Iguaçu devem se cadastrar.</li>
-                <li>**Prazo:** Fique atento aos prazos para cadastro e resposta às notificações para evitar multas.</li>
-                <li>**Como a Percy Ajuda:** Nós te auxiliamos no cadastro e na gestão das notificações para que você não perca nenhum prazo importante.</li>
-            </ul>
-            <div class="image-container">
-                <img src="image_a538a4.png" alt="e-Notifica Nova Iguaçu">
+        <!-- 3. Obrigações do MEI -->
+        <section id="obligations">
+            <h2 class="section-title mt-12">3. Obrigações do MEI</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3>Pagamento do DAS</h3>
+                    <p>O Documento de Arrecadação do Simples Nacional (DAS) deve ser pago mensalmente para manter seu CNPJ ativo e garantir seus direitos previdenciários.</p>
+                </div>
+                <div class="card">
+                    <h3>Declaração Anual (DASN)</h3>
+                    <p>Anualmente, você deve declarar o seu faturamento bruto do ano anterior. O prazo é até o dia 31 de maio.</p>
+                </div>
             </div>
         </section>
 
-        <section id="divida-antiga-pgfn" class="mb-12 card">
-            <h3 class="subsection-title">9. Dívida Antiga com a PGFN? Sua Chance de Limpar o Nome!</h3>
-            <p class="text-slate-600 mb-4">
-                Se você tem débitos federais antigos (com a PGFN), há uma nova oportunidade para regularizar sua situação.
-            </p>
-            <ul class="list-disc list-inside text-slate-700 space-y-2 mb-4">
-                <li>**Novo Edital de Transação:** A PGFN lançou condições especiais para negociação de dívidas.</li>
-                <li>**Benefícios:** Descontos em juros e multas, e parcelamentos flexíveis.</li>
-                <li>**Importância:** Limpar seu nome e regularizar sua situação fiscal é crucial para o crescimento do seu negócio.</li>
-                <li>**Nosso Apoio:** A Percy Contabilidade te guia nesse processo, garantindo que você aproveite as melhores condições.</li>
-            </ul>
+        <!-- 4. Benefícios do MEI -->
+        <section id="benefits">
+            <h2 class="section-title mt-12">4. Benefícios do MEI</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card">
+                    <h3>CNPJ</h3>
+                    <p>Facilidade para abrir contas bancárias, obter crédito e emitir notas fiscais.</p>
+                </div>
+                <div class="card">
+                    <h3>Aposentadoria</h3>
+                    <p>Direito à aposentadoria por idade, por invalidez e por tempo de contribuição (quando aplicável).</p>
+                </div>
+                <div class="card">
+                    <h3>Auxílios</h3>
+                    <p>Acesso a benefícios como auxílio-doença, salário-maternidade e pensão por morte para seus dependentes.</p>
+                </div>
+            </div>
         </section>
 
-        <section id="quer-saber-como" class="mb-12 text-center">
-            <h2 class="section-title">Quer Saber Como Tudo Isso se Aplica a VOCÊ?</h2>
-            <p class="text-lg text-slate-700 mb-6">
-                Cada empreendedor é único. Por isso, a Percy Contabilidade oferece um atendimento personalizado para entender suas necessidades e te guiar em cada etapa da sua jornada MEI.
+        <!-- 5. Vantagens de ser MEI -->
+        <section id="advantages">
+            <h2 class="section-title mt-12">5. Vantagens de ser MEI</h2>
+            <div class="card">
+                <p>Ser MEI simplifica a formalização e a gestão de um pequeno negócio. Você sai da informalidade, ganha credibilidade no mercado, tem um processo de abertura rápido e desburocratizado e paga um imposto mensal único e baixo.</p>
+            </div>
+        </section>
+
+        <!-- 6. Dúvidas Comuns e Medos Resolvidos -->
+        <section id="faq">
+            <h2 class="section-title mt-12">6. Dúvidas Comuns e Medos Resolvidos</h2>
+            <p class="text-center text-lg mb-6 text-gray-600">
+                É normal ter perguntas! Reunimos as dúvidas mais frequentes para te ajudar.
             </p>
-            <a href="https://wa.me/5521985518475?text=Olá%2C%20quero%20um%20atendimento%20personalizado%20sobre%20o%20MEI!" target="_blank" class="btn-primary text-xl px-8 py-4">
-                Fale com um Especialista AGORA!
-            </a>
-            <p class="text-sm text-slate-500 mt-4">Sua tranquilidade e sucesso são nossa prioridade.</p>
-            <div class="image-container">
-                <img src="5_QUER-SABER-COMO.jpg" alt="Quer Saber Como">
+            <div class="space-y-6">
+                <div class="card">
+                    <h3>O MEI pode ter nome fantasia?</h3>
+                    <!-- Resposta atualizada conforme a solicitação do usuário -->
+                    <p>O nome fantasia foi descontinuado para o registro no CNPJ de MEIs a partir de novembro de 2023, com o objetivo de simplificar o processo e aumentar a transparência. Se um MEI desejar registrar sua marca ou patente de forma oficial, deve fazê-lo diretamente no Instituto Nacional de Propriedade Industrial (INPI).</p>
+                </div>
+                <div class="card">
+                    <h3>Como sei que minha atividade pode ser MEI?</h3>
+                    <p>Consulte a lista oficial de ocupações permitidas no Portal do Empreendedor. É essencial que sua atividade esteja listada para se enquadrar na categoria.</p>
+                </div>
+                <div class="card">
+                    <h3>Preciso de contador?</h3>
+                    <p>A contabilidade para MEI é simplificada. Você não é obrigado a ter um contador, mas é altamente recomendado para evitar erros, organizar suas finanças e garantir que suas obrigações sejam cumpridas corretamente.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gráfico -->
+        <section id="chart" class="mt-12">
+            <h2 class="section-title">Faturamento MEI - Evolução Anual</h2>
+            <div class="card">
+                <canvas id="faturamentoChart" class="w-full h-auto"></canvas>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-slate-800 text-white py-6 mt-12">
-        <div class="container text-center">
-            <p>&copy; 2025 Percy Contabilidade. Todos os direitos reservados.</p>
-            <p class="text-sm text-slate-400 mt-2">Este é um guia educativo. Para decisões sobre seu negócio, consulte sempre um contador.</p>
-            <div class="flex justify-center space-x-4 mt-4 text-lg">
-                <a href="https://www.instagram.com/percycontabilidade" target="_blank" class="hover:text-teal-400 transition-colors">Instagram</a>
-                <span class="text-slate-500">|</span>
-                <a href="https://www.facebook.com/percycontabilidade" target="_blank" class="hover:text-teal-400 transition-colors">Facebook</a>
-                <span class="text-slate-500">|</span>
-                <a href="https://www.youtube.com/@percycontabilidade" target="_blank" class="hover:text-teal-400 transition-colors">YouTube</a>
-                <span class="text-slate-500">|</span>
-                <a href="https://www.percycontabilidade.com.br" target="_blank" class="hover:text-teal-400 transition-colors">Website</a>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-4 text-center">
+        <div class="container">
+            <p>&copy; 2024 Percy Contabilidade. Todos os direitos reservados.</p>
+            <div class="mt-4 text-sm opacity-80">
+                <a href="#" class="hover:underline mx-2">Política de Privacidade</a> | 
+                <a href="#" class="hover:underline mx-2">Termos de Serviço</a>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts para funcionalidade do Guia e Gráfico -->
+    <!-- Chart.js and Custom Script -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Função para alternar FAQs
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const svg = element.querySelector('svg');
-
-            if (answer.classList.contains('open')) {
-                answer.classList.remove('open');
-                element.classList.remove('active');
-            } else {
-                // Close all other open FAQs
-                document.querySelectorAll('.faq-answer.open').forEach(item => {
-                    item.classList.remove('open');
-                    item.previousElementSibling.classList.remove('active');
-                });
-                answer.classList.add('open');
-                element.classList.add('active');
-            }
-        }
-
         // Função para renderizar o gráfico
         function renderChart() {
-            const ctx = document.getElementById('meiGrowthChart').getContext('2d');
+            const ctx = document.getElementById('faturamentoChart').getContext('2d');
 
-            // Dados aproximados baseados nos múltiplos fornecidos no resumo_meis_limite_2024
-            // 2024: 570.000
-            // 2023: 570.000 / 30 = 19.000
-            // 2022: 570.000 / 270 = ~2.111 (arredondado para 2.100 para simplicidade visual)
+            // Dados fictícios para o gráfico (ajuste conforme necessário)
             const data = {
-                labels: ['2022', '2023', '2024'],
+                labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
                 datasets: [{
-                    label: 'MEIs que Ultrapassaram o Limite (aprox.)',
-                    data: [2100, 19000, 570000], // Valores em unidades, o Chart.js escalará
+                    label: 'Faturamento Anual (R$)',
+                    data: [60000, 75000, 81000, 78000, 80500, 81000],
                     backgroundColor: [
-                        'rgba(10, 207, 131, 0.8)', // Um verde-água vibrante
-                        'rgba(19, 173, 139, 0.8)', // Um verde-água um pouco mais escuro
-                        'rgba(17, 94, 89, 0.8)'   // Um verde-água mais profundo (teal-800)
+                        '#065f46', '#065f46', '#065f46', '#065f46', '#065f46', '#065f46'
                     ],
-                    borderColor: [
-                        'rgba(10, 207, 131, 1)',
-                        'rgba(19, 173, 139, 1)',
-                        'rgba(17, 94, 89, 1)'
-                    ],
-                    borderWidth: 1
+                    borderColor: '#115e59',
+                    borderWidth: 1,
+                    borderRadius: 8,
                 }]
             };
 
-            // Opções do gráfico
+            // Configurações do gráfico
             const options = {
                 responsive: true,
-                maintainAspectRatio: true, // Manter a proporção do canvas
+                maintainAspectRatio: false,
                 plugins: {
                     legend: {
-                        display: false, // Oculta a legenda, pois só há um dataset
+                        display: false, // Oculta a legenda
                     },
                     tooltip: {
                         callbacks: {
@@ -481,13 +231,8 @@
                                 if (label) {
                                     label += ': ';
                                 }
-                                // Formatar o número para milhões ou milhares
-                                if (context.raw >= 1000000) {
-                                    label += (context.raw / 1000000).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + ' Milhões';
-                                } else if (context.raw >= 1000) {
-                                    label += (context.raw / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 0 }) + ' Mil';
-                                } else {
-                                    label += context.raw.toLocaleString('pt-BR');
+                                if (context.parsed.y !== null) {
+                                    label += new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(context.parsed.y);
                                 }
                                 return label;
                             }
@@ -499,12 +244,11 @@
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'Número de MEIs (aprox.)',
+                            text: 'Faturamento (R$)',
                             color: '#475569' // slate-600
                         },
                         ticks: {
                             callback: function(value, index, values) {
-                                // Formatar os ticks do eixo Y para milhões ou milhares
                                 if (value >= 1000000) {
                                     return (value / 1000000).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + 'M';
                                 } else if (value >= 1000) {
