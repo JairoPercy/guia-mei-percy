@@ -3,407 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sua Jornada MEI: Da Frustração ao Sucesso | Percy Contabilidade</title>
+    <title>Guia Interativo do MEI | Percy Contabilidade</title>
+    <!-- Tailwind CSS CDN para estilização rápida e responsiva -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts - Inter para uma tipografia moderna -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Chart.js para o gráfico interativo -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
             line-height: 1.6;
         }
-        /* Cor de destaque para texto persuasivo */
-        .highlight-text {
-            color: #10B981; /* teal-500 */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 1.5rem;
         }
-        /* Estilos para o FAQ */
-        .faq-item {
-            background-color: #ffffff;
-            border-radius: 0.75rem; /* rounded-lg */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 1.5rem;
-            font-weight: 600;
+        .section-title {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 800; /* font-extrabold */
             color: #115e59; /* teal-800 */
-            cursor: pointer;
-            border-bottom: 1px solid #e2e8f0; /* slate-200 */
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
-        .faq-question:hover {
-            background-color: #f0fdfa; /* teal-50 */
+        .subsection-title {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: #0d9488; /* teal-600 */
+            margin-bottom: 1rem;
         }
-        .faq-question svg {
-            transition: transform 0.3s ease-in-out;
-        }
-        .faq-question.active svg {
-            transform: rotate(180deg);
-        }
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
-            color: #475569; /* slate-600 */
-        }
-        .faq-answer.open {
-            max-height: 500px; /* Ajuste conforme o conteúdo */
-            padding-top: 1rem;
-            padding-bottom: 1.25rem;
-        }
-        /* Estilos específicos para o gráfico */
-        .chart-container {
-            background-color: #ffffff;
+        .card {
+            background-color: #fff;
             padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            max-width: 700px;
-            width: 100%;
-            margin: 2rem auto; /* Centraliza e adiciona margem */
-            box-sizing: border-box;
+            border-radius: 1.5rem; /* rounded-3xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+            transition: transform 0.3s ease;
         }
-        .chart-container canvas {
-            max-width: 100%;
-            height: auto;
+        .card:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
-<body class="bg-stone-50 text-slate-800">
+<body class="bg-gray-50 text-slate-700">
 
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-teal-700 flex items-center space-x-2">
-                <img src="https://placehold.co/100x100/94A3B8/FFFFFF?text=Logo" alt="Logo Percy Contabilidade" class="h-16 md:h-20 w-auto rounded-lg">
+    <!-- Cabeçalho (Header) - Barra de navegação fixa no topo -->
+    <header class="bg-white sticky top-0 z-50 shadow-md">
+        <nav class="container flex justify-between items-center py-4">
+            <!-- Agora usando a sua imagem de logo real -->
+            <a href="#" class="text-2xl font-black text-teal-700">
+                <img src="logopercyatual.jpeg" alt="Logo Percy Contabilidade" class="w-auto h-8 md:h-10">
             </a>
-            <div class="hidden md:block">
-                <a href="https://wa.me/5521985518475?text=Olá%2C%20quero%20transformar%20meu%20negócio%20MEI%20e%20alcançar%20meus%20sonhos!" target="_blank" class="bg-teal-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-teal-700 transition-colors shadow-md">Fale com um Especialista</a>
-            </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
+            <!-- Links de navegação para as seções da página (somente em telas maiores) -->
+            <div class="hidden md:flex space-x-6 text-slate-600 font-medium">
+                <a href="#servicos" class="hover:text-teal-600 transition-colors">Serviços</a>
+                <a href="#beneficios" class="hover:text-teal-600 transition-colors">Benefícios</a>
+                <a href="#perfil-mei" class="hover:text-teal-600 transition-colors">Perfil MEI</a>
+                <a href="#sobre" class="hover:text-teal-600 transition-colors">Sobre Nós</a>
+                <a href="#contato" class="hover:text-teal-600 transition-colors">Contato</a>
             </div>
         </nav>
     </header>
 
-    <main class="container mx-auto px-6 py-8 md:py-16">
-        
-        <section id="hero" class="text-center mb-16 md:mb-24 bg-gradient-to-br from-teal-50 to-white p-8 rounded-xl shadow-lg">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-teal-800 mb-4 leading-tight">
-                Cansado da Burocracia? Sonha em Prosperar com seu MEI e ter Paz de Espírito?
+    <!-- Seção Principal (Hero) - Conteúdo de destaque da página -->
+    <main class="py-20 text-center">
+        <div class="container">
+            <!-- Novo título principal ("Roma") -->
+            <h1 class="text-4xl md:text-6xl font-extrabold text-teal-800 leading-tight mb-4">
+                Cheguei Sou <span class="text-yellow-500">MEI</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-8">
-                Você não está sozinho. Milhões de empreendedores já sentiram a <span class="font-bold text-red-600">frustração</span> de não saber por onde começar ou de se sentir perdido na formalização.
-                A boa notícia? A Percy Contabilidade é a sua ponte para o <span class="font-bold text-teal-700">sucesso</span> e a <span class="font-bold text-teal-700">liberdade</span> de ser MEI de verdade!
+            <p class="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto mb-8">
+                Deixe a burocracia com a gente e foque no crescimento do seu negócio. Formalização, declaração anual, parcelamento e mais.
             </p>
-            <a href="https://wa.me/5521985518475?text=Olá%2C%20quero%20transformar%20meu%20negócio%20MEI%20e%20alcançar%20meus%20sonhos!" target="_blank" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-teal-700 transition-all duration-300 transform hover:scale-105 shadow-xl text-lg">
-                Quero Minha Liberdade e Sucesso MEI!
-            </a>
-            <p class="text-sm text-slate-500 mt-4">Atendimento rápido via WhatsApp. Sua transformação começa agora.</p>
-        </section>
-
-        <section id="o-problema" class="mb-16 md:mb-24">
-            <h2 class="text-3xl font-bold text-center mb-12 text-red-700">A dura realidade de quem não está formalizado ou se sente perdido:</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-400">
-                    <div class="text-4xl text-red-600 mb-4 text-center">😢</div>
-                    <h3 class="font-bold text-xl mb-2 text-center">Sem Previdência?</h3>
-                    <p class="text-slate-600 text-center">Você está trabalhando sem garantia de aposentadoria, auxílio-doença ou licença-maternidade. Seu futuro e sua família ficam desprotegidos.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-400">
-                    <div class="text-4xl text-red-600 mb-4 text-center">🚫</div>
-                    <h3 class="font-bold text-xl mb-2 text-center">Perdendo Grandes Negócios?</h3>
-                    <p class="text-slate-600 text-center">Clientes maiores (empresas) exigem Nota Fiscal e você não consegue emitir, perdendo contratos lucrativos e oportunidades de crescimento.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-400">
-                    <div class="text-4xl text-red-600 mb-4 text-center">💸</div>
-                    <h3 class="font-bold text-xl mb-2 text-center">Sonho de Crescer Sem Crédito?</h3>
-                    <p class="text-slate-600 text-center">Você se sente travado, sem capital para investir no seu negócio. Sabia que apenas 12% dos MEIs conseguem crédito sem o apoio certo?</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-400">
-                    <div class="text-4xl text-red-600 mb-4 text-center">🤔</div>
-                    <h3 class="font-bold text-xl mb-2 text-center">Falta de Credibilidade no Mercado?</h3>
-                    <p class="text-slate-600 text-center">Sem CNPJ, seu negócio é visto como informal, dificultando parcerias, grandes vendas e a construção de uma marca forte.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-400">
-                    <div class="text-4xl text-red-600 mb-4 text-center">🤯</div>
-                    <h3 class="font-bold text-xl mb-2 text-center">A Burocracia te Paralisa?</h3>
-                    <p class="text-slate-600 text-center">Você se sente sobrecarregado e com medo de cometer erros nas declarações, impostos e formalização, perdendo seu precioso tempo.</p>
-                </div>
-                   <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-400">
-                    <div class="text-4xl text-red-600 mb-4 text-center">🧾</div>
-                    <h3 class="font-bold text-xl mb-2 text-center">Contas Pessoais x do Negócio?</h3>
-                    <p class="text-slate-600 text-center">Misturar as finanças pessoais e empresariais pode gerar caos e impedir que você veja o real lucro do seu trabalho.</p>
-                </div>
-            </div>
-            <p class="text-center text-lg mt-10 text-slate-700 italic">
-                Se você se identificou com algum desses pontos, saiba: você não está sozinho! Mas a boa notícia é que existe um caminho simples e seguro para superar tudo isso.
-            </p>
-        </section>
-
-        <section id="transformacao" class="mb-16 md:mb-24 bg-teal-50 p-8 rounded-xl shadow-lg">
-            <h2 class="text-3xl font-bold text-center mb-12 text-teal-800">Imagine seu negócio e sua vida com:</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
-                    <div class="text-4xl text-teal-600 mb-4 text-center">✨</div>
-                    <h3 class="font-bold text-xl mb-2 text-center">Paz de Espírito e Segurança</h3>
-                    <p class="text-slate-600 text-center">Durma tranquilo sabendo que você e sua família estão protegidos com aposentadoria, auxílio-doença e licença-maternidade.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
-                    <div class="text-4xl text-teal-600 mb-4 text-center">🚀</div>
-                    <h3 class="font-bold text-xl mb-2 text-center">Novas Oportunidades e Clientes</h3>
-                    <p class="text-slate-600 text-center">Emita Notas Fiscais, participe de licitações, venda para grandes empresas e eleve seu patamar profissional.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
-                    <div class="text-4xl text-teal-600 mb-4 text-center">💰</div>
-                    <h3 class="font-bold text-xl mb-2 text-center">Acesso Rápido a Crédito</h3>
-                    <p class="text-slate-600 text-center">Tenha o capital que seu negócio precisa para crescer, expandir e realizar seus sonhos mais ambiciosos.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
-                    <div class="text-4xl text-teal-600 mb-4 text-center">🏆</div>
-                    <h3 class="font-bold text-xl mb-2 text-center">Credibilidade e Autoestima Elevada</h3>
-                    <p class="text-slate-600 text-center">Tenha um CNPJ, conta PJ e seja reconhecido como um profissional sério no mercado.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
-                    <div class="text-4xl text-teal-600 mb-4 text-center">✅</div>
-                    <h3 class="font-bold text-xl mb-2 text-center">Impostos Simplificados e Baixo Custo</h3>
-                    <p class="text-slate-600 text-center">Pague um valor fixo mensal, de forma descomplicada e acessível, com a certeza de estar em dia.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-400">
-                    <div class="text-4xl text-teal-600 mb-4 text-center">🎯</div>
-                    <h3 class="font-bold text-xl mb-2 text-center">Foco Total no Seu Negócio</h3>
-                    <p class="text-slate-600 text-center">Deixe a burocracia para nós e use seu tempo e energia para atender seus clientes e fazer seu negócio decolar.</p>
-                </div>
-            </div>
-            <p class="text-center text-lg mt-10 text-teal-700 font-semibold">
-                Essa não é apenas uma promessa, é a sua nova realidade com a Percy Contabilidade.
-            </p>
-            <div class="text-center mt-8">
-                <a href="https://wa.me/5521985518475?text=Olá%2C%20quero%20minha%20liberdade%20e%20sucesso%20MEI%20com%20a%20Percy%20Contabilidade!" target="_blank" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-teal-700 transition-all duration-300 transform hover:scale-105 shadow-xl text-lg">
-                    Quero Minha Liberdade e Sucesso MEI!
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <!-- Botão "Quero Formalizar" agora leva para o formulário de contato -->
+                <a href="#contato" class="bg-teal-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-teal-700 transition-colors transform hover:scale-105">
+                    Quero Formalizar Meu Negócio
+                </a>
+                <!-- Botão "Fale Conosco" continua levando para o WhatsApp -->
+                <a href="https://wa.me/5521985518475?text=Olá,%20gostaria%20de%20falar%20com%20um%20consultor%20sobre%20os%20serviços%20da%20Percy%20Contabilidade." class="bg-transparent border-2 border-teal-600 text-teal-600 font-bold py-3 px-8 rounded-full hover:bg-teal-50 transition-colors transform hover:scale-105" target="_blank">
+                    Fale Conosco no WhatsApp
                 </a>
             </div>
-        </section>
-
-        <section id="autoridade" class="mb-16 md:mb-24 text-center bg-gray-100 p-8 rounded-xl shadow-lg">
-            <h2 class="text-3xl font-bold text-slate-700 mb-8">Por que a Percy Contabilidade é a sua escolha inteligente?</h2>
-            <div class="max-w-3xl mx-auto text-lg text-slate-600">
-                <p class="mb-4">
-                    Com anos de experiência e um olhar focado no Microempreendedor Individual, a Percy Contabilidade entende a sua jornada.
-                    <span class="font-bold highlight-text">Somos especialistas em desmistificar a formalização</span>, garantindo que você aproveite todos os benefícios do MEI sem dores de cabeça.
-                </p>
-                <p class="mb-4">
-                    Junte-se à crescente comunidade de mais de <span class="font-bold text-teal-700">11,5 milhões de MEIs ativos no Brasil</span>
-                    que, assim como você, buscaram a formalização e a profissionalização.
-                    Nossa metodologia é testada e aprovada, garantindo sua <span class="font-bold highlight-text">tranquilidade e sucesso</span>.
-                </p>
-
-                <!-- INÍCIO DO CÓDIGO DO GRÁFICO -->
-                <div class="chart-container mt-10">
-                    <h2 class="text-2xl md:text-3xl font-bold text-center mb-6 text-teal-800">
-                        Crescimento Exponencial: MEIs que Superam o Limite de Faturamento!
-                    </h2>
-                    <canvas id="meiGrowthChart"></canvas>
-                    <p class="text-sm text-slate-500 text-center mt-4">
-                        Fonte: Dados baseados em levantamentos de 2024.
-                    </p>
-                </div>
-                <!-- FIM DO CÓDIGO DO GRÁFICO -->
-
-                <p class="font-semibold text-teal-700 mt-8">Sua confiança é a nossa maior conquista.</p>
-                <div class="text-center mt-8">
-                    <a href="https://wa.me/5521985518475?text=Olá%2C%20quero%20saber%20mais%20sobre%20como%20a%20Percy%20Contabilidade%20pode%20me%20ajudar!" target="_blank" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-teal-700 transition-all duration-300 transform hover:scale-105 shadow-xl text-lg">
-                        Fale com um Especialista Agora!
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="faq-geral" class="mb-16 md:mb-24">
-            <h2 class="text-3xl font-bold text-center mb-12 text-teal-800">Suas Dúvidas Sobre o MEI Respondidas!</h2>
-            <div class="max-w-3xl mx-auto">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Qual é o limite de faturamento anual para o MEI?</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="mb-2">O limite de faturamento anual para o MEI é de **R$ 81.000,00**. Este valor é referente ao período de janeiro a dezembro do ano em exercício.</p>
-                        <p class="mb-2">Se você se formalizar como MEI no decorrer do ano, o limite de faturamento será **proporcional** ao número de meses em que você esteve ativo.</p>
-                        <p class="mb-2">**Exemplo:** Se você criou seu MEI em abril de 2024, o limite para 2024 será de R$ 6.750,00 por mês x 9 meses (de abril a dezembro), totalizando R$ 60.750,00.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Mesmo se eu não faturar o limite, preciso declarar?</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="mb-2">**Sim, absolutamente!** O MEI é **obrigado a declarar** o valor total do faturamento bruto do ano anterior, mesmo que não tenha atingido o limite de R$ 81.000,00 ou que não tenha faturado nada (neste caso, você declara R$ 0,00).</p>
-                        <p>O R$ 81.000,00 é o limite máximo. Se seu faturamento for menor, sem problemas, você vai declarar o que foi faturado.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>O que acontece se eu ultrapassar o limite de faturamento?</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="mb-2">Se seu faturamento ultrapassar o limite de R$ 81.000,00 (ou o proporcional), você será **desenquadrado do MEI** e enquadrado em uma categoria acima, como Microempresa (ME).</p>
-                        <p class="mb-2">Isso pode gerar a necessidade de recolher impostos retroativos e, em alguns casos, multas. É crucial ter o apoio de um contador nesse momento para regularizar a situação e migrar para um novo regime tributário (geralmente o Simples Nacional), garantindo que seu negócio continue crescendo de forma legal e segura.</p>
-                        <p>A Percy Contabilidade está pronta para te guiar nessa transição!</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Sou Profissional Autônomo, posso ser MEI?</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="mb-2">Se você já é um profissional autônomo (como médico, advogado, arquiteto) e sua profissão é regulamentada, você **NÃO** pode ser MEI para essa atividade específica.</p>
-                        <p class="mb-2">**PORÉM,** você pode ser MEI para uma atividade **diferente e não regulamentada!**</p>
-                        <p class="mb-2">Por exemplo, um médico pode ser MEI como eletricista ou para vendas de plantas. Isso abre um leque de oportunidades para diversificar sua renda de forma legalizada.</p>
-                        <p class="mb-2 font-bold text-teal-700">Consulte-nos para saber mais sobre as possibilidades para o seu caso!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="oferta" class="bg-teal-700 text-white text-center p-12 rounded-xl shadow-2xl">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                Sua Oportunidade Única:
-                <br class="hidden md:block">Comece Sua Jornada MEI com Confiança e Segurança Total!
-            </h2>
-            <p class="max-w-3xl mx-auto mb-8 text-xl">
-                Esta é a sua chance de transformar seu negócio, conquistar sua independência e ter a tranquilidade que você merece.
-                A Percy Contabilidade oferece um <span class="font-bold highlight-text">pacote completo de formalização e suporte contábil</span>, feito sob medida para você.
-            </p>
-            <ul class="list-none p-0 mb-10 text-xl md:text-2xl font-semibold space-y-4 text-center max-w-2xl mx-auto">
-                <li class="flex items-center justify-center"><span class="mr-3 text-teal-200">✔️</span> Formalização MEI Completa e Sem Erros</li>
-                <li class="flex items-center justify-center"><span class="mr-3 text-teal-200">✔️</span> Suporte para Emissão de Nota Fiscal</li>
-                <li class="flex items-center justify-center"><span class="mr-3 text-teal-200">✔️</span> Orientação para Acesso a Crédito</li>
-                <li class="flex items-center justify-center"><span class="mr-3 text-teal-200">✔️</span> Cálculo e Envio Mensal do DAS</li>
-                <li class="flex items-center justify-center"><span class="mr-3 text-teal-200">✔️</span> Declaração Anual de Faturamento Simplificada</li>
-                <li class="flex items-center justify-center"><span class="mr-3 text-teal-200">✔️</span> Respostas Rápidas para Todas as Suas Dúvidas</li>
-            </ul>
-
-            <h3 class="text-3xl md:text-4xl font-bold mb-8 text-yellow-300">
-                Garantia Percy Contabilidade: Sua Paz de Espírito é Nossa Prioridade!
-            </h3>
-            <p class="max-w-2xl mx-auto mb-10 text-lg">
-                Seu sucesso e sua tranquilidade são o nosso compromisso. Oferecemos um serviço com a <span class="font-bold">garantia de um processo descomplicado e seguro</span>, respaldado por nossa <span class="font-bold">experiência e autoridade</span> no mundo MEI. Você não estará sozinho nesta jornada.
-            </p>
-
-            <a href="https://wa.me/5521985518475?text=Olá%2C%20quero%20minha%20oferta%20irresistível%20para%20formalizar%20meu%20MEI%20e%20ter%20todos%20os%20benefícios!" target="_blank" class="inline-block bg-yellow-400 text-teal-800 font-black py-4 px-10 rounded-lg hover:bg-yellow-300 transition-all duration-300 transform hover:scale-110 shadow-2xl text-xl md:text-2xl uppercase tracking-wider">
-                Clique Aqui e Resgate Sua Oferta Irresistível AGORA!
-            </a>
-            <p class="text-sm text-teal-100 mt-4">Atendimento personalizado e sem burocracia via WhatsApp.</p>
-        </section>
-
+        </div>
     </main>
 
-    <footer class="bg-slate-800 text-white mt-16">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <p>&copy; 2025 Percy Contabilidade. Todos os direitos reservados.</p>
-            <p class="text-sm text-slate-400 mt-2">Este é um guia educativo. Para decisões sobre seu negócio, consulte sempre um contador.</p>
-            <div class="flex justify-center space-x-4 mt-4 text-lg">
-                <a href="https://www.instagram.com/percycontabilidade" target="_blank" class="hover:text-teal-400 transition-colors">Instagram</a>
-                <span class="text-slate-500">|</span>
-                <a href="https://www.facebook.com/percycontabilidade" target="_blank" class="hover:text-teal-400 transition-colors">Facebook</a>
-                <span class="text-slate-500">|</span>
-                <a href="https://www.youtube.com/@percycontabilidade" target="_blank" class="hover:text-teal-400 transition-colors">YouTube</a>
-                <span class="text-slate-500">|</span>
-                <a href="https://www.percycontabilidade.com.br" target="_blank" class="hover:text-teal-400 transition-colors">Website</a>
+    <!-- Seção de Serviços - Lista dos serviços oferecidos -->
+    <section id="servicos" class="py-20 bg-white">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços para MEI</h2>
+            <p class="text-center text-slate-500 mb-12 max-w-2xl mx-auto">
+                Oferecemos soluções completas para descomplicar sua jornada como Microempreendedor Individual.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-16 h-16 text-teal-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                    </div>
+                    <h3 class="subsection-title">Formalização</h3>
+                    <p class="text-slate-500">
+                        O primeiro passo para o sucesso. Auxiliamos você em todo o processo de formalização do seu negócio de forma rápida e segura.
+                    </p>
+                </div>
+                <div class="card text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-16 h-16 text-teal-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h2v8zm-2-9H8v8h2V8zm6 9h-2V8h2v9z"/></svg>
+                    </div>
+                    <h3 class="subsection-title">Declaração Anual</h3>
+                    <p class="text-slate-500">
+                        Não se preocupe com a data. Fazemos a sua Declaração Anual de Faturamento (DASN-SIMEI) para você ficar em dia com a Receita.
+                    </p>
+                </div>
+                <div class="card text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-16 h-16 text-teal-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h-2V9h4v8z"/></svg>
+                    </div>
+                    <h3 class="subsection-title">Consultoria</h3>
+                    <p class="text-slate-500">
+                        Precisa de ajuda para gerenciar suas finanças? Oferecemos consultoria para otimizar seus resultados e crescer com segurança.
+                    </p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Seção de Benefícios - Destaques da empresa -->
+    <section id="beneficios" class="py-20 bg-gray-50">
+        <div class="container">
+            <h2 class="section-title">Por Que Escolher a Percy?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <img src="https://placehold.co/600x400/115e59/ffffff?text=Benefícios" alt="Benefícios da Percy Contabilidade" class="rounded-3xl shadow-xl">
+                </div>
+                <div>
+                    <ul class="space-y-6 text-slate-600">
+                        <li class="flex items-start">
+                            <svg class="w-8 h-8 text-teal-500 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5a.996.996 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.24 4.24c.39.39 1.02.39 1.41 0L20.5 7.74c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.2z"/></svg>
+                            <p>
+                                <span class="font-bold text-teal-800">Preço Justo:</span> Pacotes de serviços que cabem no seu bolso, sem surpresas no fim do mês.
+                            </p>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-8 h-8 text-teal-500 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5a.996.996 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.24 4.24c.39.39 1.02.39 1.41 0L20.5 7.74c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.2z"/></svg>
+                            <p>
+                                <span class="font-bold text-teal-800">Atendimento Personalizado:</span> Nosso time entende o seu negócio e oferece suporte dedicado por WhatsApp.
+                            </p>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-8 h-8 text-teal-500 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5a.996.996 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.24 4.24c.39.39 1.02.39 1.41 0L20.5 7.74c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.2z"/></svg>
+                            <p>
+                                <span class="font-bold text-teal-800">Tecnologia e Segurança:</span> Usamos as melhores ferramentas para garantir que seus dados estejam sempre seguros e acessíveis.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gráfico de Crescimento MEI - Exibição de dados com Chart.js -->
+    <section class="py-20 bg-white">
+        <div class="container">
+            <h2 class="section-title">Crescimento do MEI no Brasil</h2>
+            <p class="text-center text-slate-500 mb-8 max-w-2xl mx-auto">
+                Confira como o número de Microempreendedores Individuais tem crescido anualmente, mostrando a força e a importância da categoria para a economia.
+            </p>
+            <div class="bg-gray-100 p-8 rounded-3xl shadow-xl">
+                <canvas id="meiChart" class="w-full h-auto"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Perfil Estatístico do MEI - Informações estatísticas -->
+    <section id="perfil-mei" class="py-20 bg-gray-50">
+        <div class="container">
+            <h2 class="section-title">Perfil Estatístico do MEI</h2>
+            <p class="text-center text-slate-500 mb-8 max-w-2xl mx-auto">
+                Com base em dados recentes, construímos um perfil detalhado do Microempreendedor Individual no Brasil. Conheça as características do seu público e de você mesmo.
+            </p>
+            <div class="card p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="flex items-start">
+                        <svg class="w-12 h-12 text-teal-500 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        <div>
+                            <h3 class="subsection-title">Perfil Demográfico</h3>
+                            <p class="text-slate-600">
+                                A maioria dos MEIs é uma pessoa entre <span class="font-bold text-teal-800">35 e 44 anos</span>, com ensino médio completo. A participação de mulheres já se equipara à de homens, mostrando uma diversidade crescente.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <svg class="w-12 h-12 text-teal-500 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm0-4h-2V7h2v8z"/></svg>
+                        <div>
+                            <h3 class="subsection-title">Áreas de Atividade</h3>
+                            <p class="text-slate-600">
+                                A grande maioria atua na <span class="font-bold text-teal-800">prestação de serviços</span> (cabeleireiros, eletricistas, mecânicos) e no <span class="font-bold text-teal-800">comércio varejista</span> (venda de roupas, alimentos, cosméticos), formalizando atividades já exercidas de forma autônoma.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre Nós - História e missão da empresa -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="container text-center">
+            <h2 class="section-title">Nossa História</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-lg text-slate-600 mb-6">
+                    A Percy Contabilidade nasceu da paixão em descomplicar o mundo complexo da contabilidade para pequenos empreendedores. Acreditamos que o MEI é o motor da economia local e merece um serviço de contabilidade que seja acessível, eficiente e, acima de tudo, humano.
+                </p>
+                <p class="text-lg text-slate-600">
+                    Com anos de experiência no mercado, nossa equipe se dedica a oferecer um suporte completo, desde a formalização até a consultoria estratégica, para que você possa focar no que realmente importa: fazer seu negócio crescer.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário de Contato - Captura de leads -->
+    <section id="contato" class="py-20 bg-teal-800 text-white">
+        <div class="container text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Pronto para Crescer?</h2>
+            <p class="text-lg md:text-xl text-teal-200 mb-12 max-w-2xl mx-auto">
+                Preencha o formulário e vamos conversar sobre como a Percy Contabilidade pode ajudar você a prosperar.
+            </p>
+
+            <!-- Card do Formulário -->
+            <div class="bg-white text-slate-800 p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl mx-auto">
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-left text-sm font-medium text-slate-700">Nome Completo</label>
+                        <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 p-3 bg-gray-100">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-left text-sm font-medium text-slate-700">E-mail</label>
+                        <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 p-3 bg-gray-100">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-left text-sm font-medium text-slate-700">Telefone (WhatsApp)</label>
+                        <input type="tel" id="phone" name="phone" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 p-3 bg-gray-100">
+                    </div>
+                    <div>
+                        <label for="service" class="block text-left text-sm font-medium text-slate-700">Serviço de Interesse</label>
+                        <select id="service" name="service" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 p-3 bg-gray-100">
+                            <option value="" disabled selected>Selecione um serviço</option>
+                            <option value="Formalização (Novo MEI)">Formalização (Novo MEI)</option>
+                            <option value="Declaração Anual (DASN-SIMEI)">Declaração Anual (DASN-SIMEI)</option>
+                            <option value="Contabilidade Completa">Contabilidade Completa</option>
+                            <option value="Consultoria Financeira">Consultoria Financeira</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-left text-sm font-medium text-slate-700">Sua Mensagem</label>
+                        <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 p-3 bg-gray-100"></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full py-3 px-6 border border-transparent rounded-full shadow-sm text-lg font-bold text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-colors transform hover:scale-105">
+                        Enviar e Falar no WhatsApp
+                    </button>
+
+                    <!-- Área para mensagens de feedback -->
+                    <div id="formMessage" class="mt-4 text-center text-sm font-medium hidden"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé (Footer) - Direitos autorais e informações de contato -->
+    <footer class="bg-teal-900 text-white py-12">
+        <div class="container text-center">
+            <div class="mb-4">
+                <a href="#" class="text-2xl font-black text-white">Percy Contabilidade</a>
+            </div>
+            <p class="text-sm text-teal-200">&copy; 2025 Percy Contabilidade. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Script simples para o botão de menu mobile
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            if (mobileMenuButton) {
-                mobileMenuButton.addEventListener('click', () => {
-                    // Substituído o 'alert()' por 'console.log()' para evitar o bloqueio da tela.
-                    console.log('Nesta landing page, o menu mobile não tem funcionalidade interativa. O foco é a conversão direta.');
-                });
-            }
-        });
-
-        // Script para o FAQ expansível
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const svg = element.querySelector('svg');
-
-            if (answer.classList.contains('open')) {
-                answer.classList.remove('open');
-                element.classList.remove('active');
-            } else {
-                // Fecha todos os outros FAQs abertos
-                document.querySelectorAll('.faq-answer.open').forEach(item => {
-                    item.classList.remove('open');
-                    item.previousElementSibling.classList.remove('active');
-                });
-                answer.classList.add('open');
-                element.classList.add('active');
-            }
-        }
-
-        // Função para renderizar o gráfico
+        // Função para renderizar o gráfico de barras
         function renderChart() {
-            const ctx = document.getElementById('meiGrowthChart').getContext('2d');
+            const ctx = document.getElementById('meiChart').getContext('2d');
 
-            // Dados aproximados baseados em levantamentos de 2024
             const data = {
-                labels: ['2022', '2023', '2024'],
+                labels: ['2020', '2021', '2022', '2023', '2024'],
                 datasets: [{
-                    label: 'MEIs que Ultrapassaram o Limite (aprox.)',
-                    data: [2100, 19000, 570000],
-                    backgroundColor: [
-                        'rgba(10, 207, 131, 0.8)', // Um verde-água vibrante
-                        'rgba(19, 173, 139, 0.8)', // Um verde-água um pouco mais escuro
-                        'rgba(17, 94, 89, 0.8)'    // Um verde-água mais profundo (teal-800)
-                    ],
-                    borderColor: [
-                        'rgba(10, 207, 131, 1)',
-                        'rgba(19, 173, 139, 1)',
-                        'rgba(17, 94, 89, 1)'
-                    ],
-                    borderWidth: 1
+                    label: 'Número de MEIs no Brasil',
+                    data: [10.6, 13.4, 15.6, 18.1, 20.7],
+                    backgroundColor: '#115e59', // teal-800
+                    borderRadius: 8,
                 }]
             };
 
-            // Opções do gráfico
             const options = {
                 responsive: true,
-                maintainAspectRatio: true, // Manter a proporção do canvas
+                maintainAspectRatio: false,
                 plugins: {
                     legend: {
-                        display: false, // Oculta a legenda, pois só há um dataset
+                        display: false,
                     },
                     tooltip: {
                         callbacks: {
-                            label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
-                                // Formatar o número para milhões ou milhares
-                                if (context.raw >= 1000000) {
-                                    label += (context.raw / 1000000).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + ' Milhões';
-                                } else if (context.raw >= 1000) {
-                                    label += (context.raw / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 0 }) + ' Mil';
-                                } else {
-                                    label += context.raw.toLocaleString('pt-BR');
-                                }
-                                return label;
+                            label: function(tooltipItem) {
+                                return tooltipItem.dataset.label + ': ' + tooltipItem.raw + ' milhões';
                             }
                         }
                     }
@@ -411,20 +317,16 @@
                 scales: {
                     y: {
                         beginAtZero: true,
+                        max: 25,
                         title: {
                             display: true,
-                            text: 'Número de MEIs (aprox.)',
+                            text: 'Milhões de MEIs',
                             color: '#475569' // slate-600
                         },
                         ticks: {
-                            callback: function(value, index, values) {
-                                // Formatar os ticks do eixo Y para milhões ou milhares
-                                if (value >= 1000000) {
-                                    return (value / 1000000).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + 'M';
-                                } else if (value >= 1000) {
-                                    return (value / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 0 }) + 'k';
-                                }
-                                return value.toLocaleString('pt-BR');
+                            callback: function(value) {
+                                if (value === 0) return '0';
+                                return value + 'M';
                             },
                             color: '#475569' // slate-600
                         },
@@ -448,7 +350,6 @@
                 }
             };
 
-            // Cria o gráfico
             new Chart(ctx, {
                 type: 'bar',
                 data: data,
@@ -456,8 +357,66 @@
             });
         }
 
-        // Renderiza o gráfico quando a janela carregar
+        // Lógica do formulário de contato para envio via WhatsApp
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            const submitBtn = document.getElementById('submitBtn');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Obtém os valores dos campos do formulário
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const service = document.getElementById('service').value;
+                const message = document.getElementById('message').value;
+                
+                // Número de WhatsApp da Percy Contabilidade
+                const whatsappNumber = '5521985518475'; 
+
+                // Desabilita o botão e mostra mensagem de envio
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Enviando...';
+                formMessage.textContent = 'Aguarde, estamos processando suas informações...';
+                formMessage.classList.remove('hidden');
+                formMessage.classList.remove('text-red-500');
+                formMessage.classList.add('text-teal-600');
+
+                // Simula o tempo de envio (como se estivesse fazendo uma chamada de API)
+                setTimeout(() => {
+                    
+                    // Monta a mensagem pré-preenchida para o WhatsApp
+                    const whatsappMessage = `Olá, Percy Contabilidade!%0A%0ARecebi seu contato pela landing page e gostaria de conversar sobre:%0A%0A*Nome:* ${encodeURIComponent(name)}%0A*E-mail:* ${encodeURIComponent(email)}%0A*Telefone:* ${encodeURIComponent(phone)}%0A*Serviço de Interesse:* ${encodeURIComponent(service)}%0A*Mensagem:* ${encodeURIComponent(message || 'Sem mensagem adicional.')}%0A%0AAguardando seu retorno. Obrigado!`;
+                    
+                    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+                    // Exibe a mensagem de sucesso
+                    formMessage.textContent = 'Formulário enviado com sucesso! Você será redirecionado para o WhatsApp.';
+                    formMessage.classList.remove('hidden');
+                    formMessage.classList.add('text-teal-600');
+
+                    // Redireciona o usuário para o WhatsApp
+                    window.open(whatsappUrl, '_blank');
+
+                    // Habilita o botão novamente e limpa o formulário
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Enviar e Falar no WhatsApp';
+                    form.reset();
+
+                    // Esconde a mensagem após 5 segundos
+                    setTimeout(() => {
+                        formMessage.classList.add('hidden');
+                    }, 5000);
+
+                }, 2000); // 2 segundos para simular o envio
+            });
+        });
+
+        // Chama a função para renderizar o gráfico quando a janela carregar
         window.onload = renderChart;
     </script>
+
 </body>
 </html>
