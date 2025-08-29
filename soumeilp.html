@@ -52,13 +52,10 @@
 
     <!-- Cabeçalho (Header) - Barra de navegação fixa no topo -->
     <header class="bg-white sticky top-0 z-50 shadow-md">
-        <nav class="container flex justify-between items-center py-4">
-            <!-- Agora usando a sua imagem de logo real -->
-            <a href="#" class="text-2xl font-black text-teal-700">
-                <img src="logopercyatual.jpeg" alt="Logo Percy Contabilidade" class="w-auto h-8 md:h-10">
-            </a>
+        <nav class="container flex justify-end items-center py-4">
+            <!-- Removido o logo do cabeçalho conforme a sua sugestão -->
             <!-- Links de navegação para as seções da página (somente em telas maiores) -->
-            <div class="hidden md:flex space-x-6 text-slate-600 font-medium">
+            <div class="md:flex space-x-6 text-slate-600 font-medium">
                 <a href="#servicos" class="hover:text-teal-600 transition-colors">Serviços</a>
                 <a href="#beneficios" class="hover:text-teal-600 transition-colors">Benefícios</a>
                 <a href="#perfil-mei" class="hover:text-teal-600 transition-colors">Perfil MEI</a>
@@ -71,7 +68,7 @@
     <!-- Seção Principal (Hero) - Conteúdo de destaque da página -->
     <main class="py-20 text-center">
         <div class="container">
-            <!-- Novo título principal ("Roma") -->
+            <!-- Título principal ("Roma") -->
             <h1 class="text-4xl md:text-6xl font-extrabold text-teal-800 leading-tight mb-4">
                 Cheguei Sou <span class="text-yellow-500">MEI</span>
             </h1>
@@ -79,11 +76,11 @@
                 Deixe a burocracia com a gente e foque no crescimento do seu negócio. Formalização, declaração anual, parcelamento e mais.
             </p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <!-- Botão "Quero Formalizar" agora leva para o formulário de contato -->
+                <!-- Botão "Quero Formalizar" leva para o formulário de contato -->
                 <a href="#contato" class="bg-teal-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-teal-700 transition-colors transform hover:scale-105">
                     Quero Formalizar Meu Negócio
                 </a>
-                <!-- Botão "Fale Conosco" continua levando para o WhatsApp -->
+                <!-- Botão "Fale Conosco" leva para o WhatsApp -->
                 <a href="https://wa.me/5521985518475?text=Olá,%20gostaria%20de%20falar%20com%20um%20consultor%20sobre%20os%20serviços%20da%20Percy%20Contabilidade." class="bg-transparent border-2 border-teal-600 text-teal-600 font-bold py-3 px-8 rounded-full hover:bg-teal-50 transition-colors transform hover:scale-105" target="_blank">
                     Fale Conosco no WhatsApp
                 </a>
@@ -278,7 +275,10 @@
     <footer class="bg-teal-900 text-white py-12">
         <div class="container text-center">
             <div class="mb-4">
-                <a href="#" class="text-2xl font-black text-white">Percy Contabilidade</a>
+                <!-- Logomarca no rodapé para reforçar a marca no final -->
+                <a href="#" class="text-2xl font-black text-white">
+                    <img src="logopercyatual.jpeg" alt="Logo Percy Contabilidade" class="w-auto h-12 mx-auto">
+                </a>
             </div>
             <p class="text-sm text-teal-200">&copy; 2025 Percy Contabilidade. Todos os direitos reservados.</p>
         </div>
