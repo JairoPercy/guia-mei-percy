@@ -328,11 +328,16 @@
                 <input type="date" id="dataPreenchimento" name="dataPreenchimento" class="w-full px-4 py-2 border rounded-md focus:outline-none" required>
             </div>
 
-            <div class="flex justify-center items-center mt-8 space-x-4">
+            <div class="flex flex-col items-center mt-8 space-y-4 md:flex-row md:justify-center md:space-x-4 md:space-y-0">
                 <span class="text-lg font-bold text-gray-800">Enviar Ficha para:</span>
-                <a id="whatsappButton" href="#" target="_blank" class="bg-[#25D366] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#128C7E] transition duration-300">
+                <a id="whatsappEmpresaButton" href="#" target="_blank" class="bg-[#25D366] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#128C7E] transition duration-300">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" class="w-6 h-6 inline-block mr-2">
                     EMPRESA CONTRATANTE
+                </a>
+                
+                <a id="whatsappPercyButton" href="#" target="_blank" class="bg-[#1C5F94] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#124269] transition duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" class="w-6 h-6 inline-block mr-2">
+                    ENVIAR PARA O ESCRITÓRIO
                 </a>
             </div>
             </form>
@@ -345,27 +350,22 @@
         document.addEventListener('DOMContentLoaded', (event) => {
             const today = new Date().toISOString().slice(0, 10);
             document.getElementById('dataPreenchimento').value = today;
+            updateAllLinks(); // Atualiza os links na primeira vez que a página carrega
         });
 
         document.getElementById('employeeForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Evita o envio padrão do formulário
         });
 
-        // Script para montar o link do WhatsApp
-        const whatsappInput = document.getElementById('whatsappEmpresa');
-        const whatsappButton = document.getElementById('whatsappButton');
-        const statusMessage = document.getElementById('statusMessage');
+        // Event listener para atualizar os links dinamicamente
+        document.getElementById('employeeForm').addEventListener('input', updateAllLinks);
 
-        function updateWhatsappLink() {
-            const numeroBruto = whatsappInput.value;
-            // Remove todos os caracteres não numéricos
-            const numeroLimpo = numeroBruto.replace(/\D/g, ''); 
-            
-            if (numeroLimpo.length >= 10) {
-                const formData = new FormData(document.getElementById('employeeForm'));
-                const data = Object.fromEntries(formData.entries());
+        function updateAllLinks() {
+            const formData = new FormData(document.getElementById('employeeForm'));
+            const data = Object.fromEntries(formData.entries());
 
-                const message = `
+            // 1. Mensagem para a empresa contratante
+            const messageEmpresa = `
 Ficha de Registro de Funcionários Preenchida:
 *Empresa Contratante:* ${data.empresa}
 *Nome Completo:* ${data.nome}
@@ -374,22 +374,53 @@ Ficha de Registro de Funcionários Preenchida:
 
 *Para acesso rápido e completa da ficha, clique no link abaixo:*
 https://percycontabilidade.com.br/cadastrofuncional
-                `;
-                
-                const encodedMessage = encodeURIComponent(message);
-                const whatsappLink = `https://wa.me/${numeroLimpo}?text=${encodedMessage}`;
-                whatsappButton.href = whatsappLink;
-                statusMessage.textContent = 'Clique no botão acima para enviar a ficha via WhatsApp.';
-                statusMessage.style.color = '#334155';
+            `;
+            
+            // 2. Mensagem completa para o escritório Percy
+            const messagePercy = `
+*Ficha de Registro de Funcionários - Percy Contabilidade*
+
+*Empresa Contratante:* ${data.empresa}
+*Nome Completo:* ${data.nome}
+*CPF:* ${data.cpf}
+*Data de Admissão:* ${data.dataAdmissao}
+*Salário:* ${data.salario}
+*Função:* ${data.funcao}
+*Tem filhos?:* ${data.temFilhos}
+*Primeiro Emprego?:* ${data.primeiroEmprego}
+*Desconto Vale Transporte?:* ${data.valeTransporte}
+            `;
+
+            // Lógica para o botão da Empresa Contratante
+            const whatsappInputEmpresa = document.getElementById('whatsappEmpresa');
+            const whatsappButtonEmpresa = document.getElementById('whatsappEmpresaButton');
+            const numeroEmpresa = whatsappInputEmpresa.value.replace(/\D/g, ''); 
+            
+            if (numeroEmpresa.length >= 10) {
+                const whatsappLinkEmpresa = `https://wa.me/${numeroEmpresa}?text=${encodeURIComponent(messageEmpresa)}`;
+                whatsappButtonEmpresa.href = whatsappLinkEmpresa;
+            } else {
+                whatsappButtonEmpresa.href = '#';
+            }
+
+            // Lógica para o botão do Escritório de Contabilidade Percy
+            const percyNumber = "5521985518475"; // Número fixo do escritório
+            const whatsappButtonPercy = document.getElementById('whatsappPercyButton');
+            const whatsappLinkPercy = `https://wa.me/${percyNumber}?text=${encodeURIComponent(messagePercy)}`;
+            whatsappButtonPercy.href = whatsappLinkPercy;
+
+            // Mensagem de status para o usuário
+            const statusMessage = document.getElementById('statusMessage');
+            if (numeroEmpresa.length < 10) {
+                statusMessage.textContent = 'Por favor, insira um número de WhatsApp válido para a empresa contratante.';
+                statusMessage.style.color = '#dc2626';
                 statusMessage.classList.remove('hidden');
             } else {
-                whatsappButton.href = '#';
-                statusMessage.textContent = 'Por favor, insira um número de WhatsApp válido para continuar.';
-                statusMessage.style.color = '#dc2626';
+                statusMessage.textContent = 'Ficha preenchida! Clique em um dos botões acima para enviar.';
+                statusMessage.style.color = '#334155';
                 statusMessage.classList.remove('hidden');
             }
         }
-
-        // Adiciona um listener para atualizar o link sempre que o campo de WhatsApp for alterado
-        whatsappInput.addEventListener('input', updateWhatsappLink);
-        document
+    </script>
+</body>
+</html>
