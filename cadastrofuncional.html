@@ -36,14 +36,20 @@
 
     <div class="form-container">
         <div class="flex flex-col items-center mb-8">
-             <img src="logopercyatual.jpeg" alt="Logotipo da Percy Contabilidade" class="mb-4 w-40 h-auto">
+            <img src="logopercyatual.jpeg" alt="Logotipo da Percy Contabilidade" class="mb-4 w-40 h-auto">
             <h1 class="text-3xl font-bold text-center text-gray-800">FICHA DE REGISTRO DE FUNCIONÁRIOS</h1>
             <h2 class="text-lg font-medium text-center text-gray-600">Percy Contabilidade - Negócios Inteligentes</h2>
-            <div class="mt-4 w-full">
-                <label for="empresa" class="block text-sm font-medium mb-1 text-center text-gray-700">Empresa Contratante</label>
-                <input type="text" id="empresa" name="empresa" class="w-full px-4 py-2 border rounded-md focus:outline-none text-center" placeholder="Preencha com a Razão Social da empresa" required>
+            <div class="mt-4 w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="empresa" class="block text-sm font-medium mb-1 text-center text-gray-700">Empresa Contratante</label>
+                    <input type="text" id="empresa" name="empresa" class="w-full px-4 py-2 border rounded-md focus:outline-none text-center" placeholder="Preencha com a Razão Social da empresa" required>
+                </div>
+                <div>
+                    <label for="whatsappEmpresa" class="block text-sm font-medium mb-1 text-center text-gray-700">WhatsApp da Empresa</label>
+                    <input type="tel" id="whatsappEmpresa" name="whatsappEmpresa" class="w-full px-4 py-2 border rounded-md focus:outline-none text-center" placeholder="(XX) XXXXX-XXXX" required>
+                </div>
             </div>
-        </div>
+            </div>
 
         <p class="mb-6 text-sm text-gray-700">
             Para a efetivação da contratação, o **candidato** deverá preencher os dados a seguir. A empresa contratante deverá, posteriormente, conferir com os documentos originais.
@@ -51,7 +57,6 @@
 
         <form id="employeeForm" class="space-y-6">
 
-            <!-- DADOS CADASTRAIS -->
             <fieldset class="border-t border-gray-300 pt-6">
                 <legend class="text-xl font-semibold mb-4 text-gray-800">1. DADOS CADASTRAIS</legend>
                 
@@ -240,7 +245,6 @@
                 </div>
             </fieldset>
 
-            <!-- INFORMAÇÕES DO EMPREGADOR PARA A ADMISSÃO -->
             <fieldset class="border-t border-gray-300 pt-6">
                 <legend class="text-xl font-semibold mb-2 text-gray-800">2. INFORMAÇÕES DO EMPREGADOR PARA A ADMISSÃO</legend>
                 <p class="mb-4 text-sm font-medium text-gray-600 italic">
@@ -319,19 +323,19 @@
                 </div>
             </fieldset>
 
-            <!-- NOVO CAMPO DE DATA -->
             <div class="form-group pt-6 border-t border-gray-300">
                 <label for="dataPreenchimento" class="block text-sm font-medium mb-1">Data de Preenchimento</label>
                 <input type="date" id="dataPreenchimento" name="dataPreenchimento" class="w-full px-4 py-2 border rounded-md focus:outline-none" required>
             </div>
 
-            <div class="flex justify-center mt-8">
-                <button type="submit" class="bg-[#504533] text-[#f1c875] font-bold py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 transition duration-300">
-                    Enviar Ficha
-                </button>
+            <div class="flex justify-center items-center mt-8 space-x-4">
+                <span class="text-lg font-bold text-gray-800">Enviar Ficha para:</span>
+                <a id="whatsappButton" href="#" target="_blank" class="bg-[#25D366] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#128C7E] transition duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" class="w-6 h-6 inline-block mr-2">
+                    EMPRESA CONTRATANTE
+                </a>
             </div>
-            
-        </form>
+            </form>
 
         <div id="statusMessage" class="mt-6 text-center text-sm font-semibold hidden"></div>
 
@@ -344,89 +348,48 @@
         });
 
         document.getElementById('employeeForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const form = event.target;
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-
-            const message = `
-                Ficha de Registro de Funcionários Preenchida:
-
-                Data de Preenchimento: ${data.dataPreenchimento}
-
-                Empresa Contratante: ${data.empresa}
-
-                --- DADOS CADASTRAIS ---
-                Nome Completo: ${data.nome}
-                Nacionalidade: ${data.nacionalidade}
-                Naturalidade: ${data.naturalidade}
-                Data de Nascimento: ${data.dataNascimento}
-                Local de Nascimento: ${data.localNascimento}
-                UF: ${data.ufNascimento}
-                Endereço: ${data.endereco}
-                Cidade: ${data.cidade}
-                CEP: ${data.cep}
-                Telefone: ${data.tel}
-                E-mail: ${data.email}
-                RG: ${data.rg}
-                Data de Emissão do RG: ${data.dataEmissaoRg}
-                Órgão Emissor do RG: ${data.orgaoEmissorRg}
-                UF do RG: ${data.ufRg}
-                CPF: ${data.cpf}
-                CNH: ${data.cnh || 'Não possui'}
-                Categoria da CNH: ${data.cnhCategoria || 'Não se aplica'}
-                Data de Emissão da CNH: ${data.dataEmissaoCnh || 'Não se aplica'}
-                Data de Validade da CNH: ${data.dataValidadeCnh || 'Não se aplica'}
-                Título de Eleitor: ${data.tituloEleitor}
-                Zona: ${data.zonaEleitor}
-                Seção: ${data.secaoEleitor}
-                Certificado de Reservista: ${data.reservista || 'Não possui'}
-                Categoria do Certificado: ${data.reservistaCategoria || 'Não se aplica'}
-                CTPS: ${data.ctps}
-                Série: ${data.ctpsSerie}
-                UF da CTPS: ${data.ctpsUf}
-                Data de Emissão da CTPS: ${data.dataEmissaoCtps}
-                Carteira de Trabalho Digital: ${data.ctpsDigital || 'Não possui'}
-                PIS/PASEP: ${data.pisPasep}
-                Filiação - Pai: ${data.filiacaoPai}
-                Filiação - Mãe: ${data.filiacaoMae}
-                Estado Civil: ${data.estadoCivil}
-                Cônjuge/Companheiro: ${data.conjuge || 'Não se aplica'}
-                Tem filhos?: ${data.temFilhos}
-                Número de Filhos: ${data.numeroFilhos || 'Não se aplica'}
-                Grau de Instrução: ${data.grauInstrucao} - ${data.grauStatus}
-                Banco: ${data.banco}
-                Agência: ${data.agencia}
-                Conta para Depósito: ${data.contaDeposito}
-                Chave PIX: ${data.chavePix || 'Não informada'}
-
-                --- INFORMAÇÕES DO EMPREGADOR ---
-                É o primeiro emprego?: ${data.primeiroEmprego}
-                Data de Admissão: ${data.dataAdmissao}
-                Salário: ${data.salario}
-                Função: ${data.funcao}
-                Carga Horária Mensal: ${data.cargaHorariaMensal}
-                Carga Horária Semanal: ${data.cargaHorariaSemanal}
-                Dia de Folga: ${data.diaFolga}
-                Contrato de Experiência: ${data.diasContrato} dias
-                Prorrogado por mais: ${data.diasProrrogacao} dias
-                Desconto de Vale Transporte?: ${data.valeTransporte}
-                Horário de Segunda a Sexta: ${data.horarioSegSex}
-                Horário de Sábado: ${data.horarioSabado || 'Não se aplica'}
-            `;
-
-            const statusMessage = document.getElementById('statusMessage');
-            statusMessage.classList.remove('hidden');
-            statusMessage.textContent = 'Enviando...';
-
-            const emailSubject = `Ficha de Cadastro de Funcionário - ${data.nome} (${data.empresa})`;
-            const mailtoLink = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(message)}`;
-
-            window.location.href = mailtoLink;
-
-            statusMessage.textContent = 'Ficha gerada com sucesso! Verifique seu aplicativo de e-mail para enviar.';
+            event.preventDefault(); // Evita o envio padrão do formulário
         });
-    </script>
-</body>
-</html>
+
+        // Script para montar o link do WhatsApp
+        const whatsappInput = document.getElementById('whatsappEmpresa');
+        const whatsappButton = document.getElementById('whatsappButton');
+        const statusMessage = document.getElementById('statusMessage');
+
+        function updateWhatsappLink() {
+            const numeroBruto = whatsappInput.value;
+            // Remove todos os caracteres não numéricos
+            const numeroLimpo = numeroBruto.replace(/\D/g, ''); 
+            
+            if (numeroLimpo.length >= 10) {
+                const formData = new FormData(document.getElementById('employeeForm'));
+                const data = Object.fromEntries(formData.entries());
+
+                const message = `
+Ficha de Registro de Funcionários Preenchida:
+*Empresa Contratante:* ${data.empresa}
+*Nome Completo:* ${data.nome}
+*Data de Admissão:* ${data.dataAdmissao}
+*Função:* ${data.funcao}
+
+*Para acesso rápido e completa da ficha, clique no link abaixo:*
+https://percycontabilidade.com.br/cadastrofuncional
+                `;
+                
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappLink = `https://wa.me/${numeroLimpo}?text=${encodedMessage}`;
+                whatsappButton.href = whatsappLink;
+                statusMessage.textContent = 'Clique no botão acima para enviar a ficha via WhatsApp.';
+                statusMessage.style.color = '#334155';
+                statusMessage.classList.remove('hidden');
+            } else {
+                whatsappButton.href = '#';
+                statusMessage.textContent = 'Por favor, insira um número de WhatsApp válido para continuar.';
+                statusMessage.style.color = '#dc2626';
+                statusMessage.classList.remove('hidden');
+            }
+        }
+
+        // Adiciona um listener para atualizar o link sempre que o campo de WhatsApp for alterado
+        whatsappInput.addEventListener('input', updateWhatsappLink);
+        document
