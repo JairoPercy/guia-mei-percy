@@ -359,51 +359,101 @@
 
         document.getElementById('employeeForm').addEventListener('input', updateAllLinks);
 
+        // NOVO: Função para gerar a mensagem completa com todos os dados do formulário
+        function generateFullMessage(data) {
+            // Converte os dados do formulário para uma string formatada
+            const message = `
+*--- FICHA DE REGISTRO DE FUNCIONÁRIOS ---*
+*Empresa Contratante:* ${data.empresa || 'Não informado'}
+*WhatsApp Empresa:* ${data.whatsappEmpresa || 'Não informado'}
+
+*--- DADOS CADASTRAIS ---*
+*Nome Completo:* ${data.nome || 'Não informado'}
+*Nacionalidade:* ${data.nacionalidade || 'Não informado'}
+*Naturalidade:* ${data.naturalidade || 'Não informado'}
+*Local de Nascimento:* ${data.localNascimento || 'Não informado'}
+*UF de Nascimento:* ${data.ufNascimento || 'Não informado'}
+*Data de Nascimento:* ${data.dataNascimento || 'Não informado'}
+*Endereço:* ${data.endereco || 'Não informado'}
+*Cidade:* ${data.cidade || 'Não informado'}
+*CEP:* ${data.cep || 'Não informado'}
+*Telefone:* ${data.tel || 'Não informado'}
+*E-mail:* ${data.email || 'Não informado'}
+*RG:* ${data.rg || 'Não informado'}
+*Data de Emissão RG:* ${data.dataEmissaoRg || 'Não informado'}
+*Órgão Emissor RG:* ${data.orgaoEmissorRg || 'Não informado'}
+*UF RG:* ${data.ufRg || 'Não informado'}
+*CPF:* ${data.cpf || 'Não informado'}
+*CNH:* ${data.cnh || 'Não possui'}
+*Categoria CNH:* ${data.cnhCategoria || 'Não se aplica'}
+*Data de Emissão CNH:* ${data.dataEmissaoCnh || 'Não se aplica'}
+*Data de Validade CNH:* ${data.dataValidadeCnh || 'Não se aplica'}
+*Título de Eleitor:* ${data.tituloEleitor || 'Não informado'}
+*Zona Eleitor:* ${data.zonaEleitor || 'Não informado'}
+*Seção Eleitor:* ${data.secaoEleitor || 'Não informado'}
+*Certificado de Reservista:* ${data.reservista || 'Não possui'}
+*Categoria Reservista:* ${data.reservistaCategoria || 'Não se aplica'}
+*CTPS:* ${data.ctps || 'Não informado'}
+*Série CTPS:* ${data.ctpsSerie || 'Não informado'}
+*UF CTPS:* ${data.ctpsUf || 'Não informado'}
+*Data de Emissão CTPS:* ${data.dataEmissaoCtps || 'Não informado'}
+*Carteira Digital:* ${data.ctpsDigital || 'Não possui'}
+*PIS/PASEP:* ${data.pisPasep || 'Não informado'}
+*Filiação Pai:* ${data.filiacaoPai || 'Não informado'}
+*Filiação Mãe:* ${data.filiacaoMae || 'Não informado'}
+*Estado Civil:* ${data.estadoCivil || 'Não informado'}
+*Cônjuge/Companheiro:* ${data.conjuge || 'Não se aplica'}
+*Tem filhos?:* ${data.temFilhos || 'Não informado'}
+*Número de Filhos:* ${data.numeroFilhos || 'Não se aplica'}
+*Grau de Instrução:* ${data.grauInstrucao || 'Não informado'} - ${data.grauStatus || 'Não informado'}
+*Banco:* ${data.banco || 'Não informado'}
+*Agência:* ${data.agencia || 'Não informado'}
+*Conta para Depósito:* ${data.contaDeposito || 'Não informado'}
+*Chave PIX:* ${data.chavePix || 'Não informada'}
+
+*--- INFORMAÇÕES DO EMPREGADOR ---*
+*Primeiro Emprego?:* ${data.primeiroEmprego || 'Não informado'}
+*Data de Admissão:* ${data.dataAdmissao || 'Não informado'}
+*Salário:* ${data.salario || 'Não informado'}
+*Função:* ${data.funcao || 'Não informado'}
+*Carga Horária Mensal:* ${data.cargaHorariaMensal || 'Não informado'}
+*Carga Horária Semanal:* ${data.cargaHorariaSemanal || 'Não informado'}
+*Dia de Folga:* ${data.diaFolga || 'Não informado'}
+*Contrato de Experiência:* ${data.diasContrato || 'Não informado'} dias
+*Prorrogado por mais:* ${data.diasProrrogacao || 'Não informado'} dias
+*Desconto Vale Transporte?:* ${data.valeTransporte || 'Não informado'}
+*Horário Seg a Sex:* ${data.horarioSegSex || 'Não informado'}
+*Horário Sábado:* ${data.horarioSabado || 'Não se aplica'}
+            `;
+            return message;
+        }
+
         function updateAllLinks() {
             const formData = new FormData(document.getElementById('employeeForm'));
             const data = Object.fromEntries(formData.entries());
 
-            const messageEmpresa = `
-Ficha de Registro de Funcionários Preenchida:
-*Empresa Contratante:* ${data.empresa}
-*Nome Completo:* ${data.nome}
-*Data de Admissão:* ${data.dataAdmissao}
-*Função:* ${data.funcao}
+            // NOVO: Gera a mensagem completa para ambos os botões
+            const fullMessage = generateFullMessage(data);
 
-*Para acesso rápido e completa da ficha, clique no link abaixo:*
-https://percycontabilidade.com.br/cadastrofuncional
-            `;
-            
-            const messagePercy = `
-*Ficha de Registro de Funcionários - Percy Contabilidade*
-
-*Empresa Contratante:* ${data.empresa}
-*Nome Completo:* ${data.nome}
-*CPF:* ${data.cpf}
-*Data de Admissão:* ${data.dataAdmissao}
-*Salário:* ${data.salario}
-*Função:* ${data.funcao}
-*Tem filhos?:* ${data.temFilhos}
-*Primeiro Emprego?:* ${data.primeiroEmprego}
-*Desconto Vale Transporte?:* ${data.valeTransporte}
-            `;
-
+            // 1. Lógica para o botão da Empresa Contratante
             const whatsappInputEmpresa = document.getElementById('whatsappEmpresa');
             const whatsappButtonEmpresa = document.getElementById('whatsappEmpresaButton');
             const numeroEmpresa = whatsappInputEmpresa.value.replace(/\D/g, ''); 
             
             if (numeroEmpresa.length >= 10) {
-                const whatsappLinkEmpresa = `https://wa.me/${numeroEmpresa}?text=${encodeURIComponent(messageEmpresa)}`;
+                const whatsappLinkEmpresa = `https://wa.me/${numeroEmpresa}?text=${encodeURIComponent(fullMessage)}`;
                 whatsappButtonEmpresa.href = whatsappLinkEmpresa;
             } else {
                 whatsappButtonEmpresa.href = '#';
             }
 
-            const percyNumber = "5521985518475";
+            // 2. Lógica para o botão do Escritório de Contabilidade Percy
+            const percyNumber = "5521985518475"; // Número fixo do escritório
             const whatsappButtonPercy = document.getElementById('whatsappPercyButton');
-            const whatsappLinkPercy = `https://wa.me/${percyNumber}?text=${encodeURIComponent(messagePercy)}`;
+            const whatsappLinkPercy = `https://wa.me/${percyNumber}?text=${encodeURIComponent(fullMessage)}`;
             whatsappButtonPercy.href = whatsappLinkPercy;
 
+            // Mensagem de status para o usuário
             const statusMessage = document.getElementById('statusMessage');
             if (numeroEmpresa.length < 10) {
                 statusMessage.textContent = 'Por favor, insira um número de WhatsApp válido para a empresa contratante.';
