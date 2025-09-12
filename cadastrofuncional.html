@@ -39,6 +39,14 @@
             <img src="logopercyatual.jpeg" alt="Logotipo da Percy Contabilidade" class="mb-4 w-40 h-auto">
             <h1 class="text-3xl font-bold text-center text-gray-800">FICHA DE REGISTRO DE FUNCIONÁRIOS</h1>
             <h2 class="text-lg font-medium text-center text-gray-600">Percy Contabilidade - Negócios Inteligentes</h2>
+        </div>
+
+        <p class="mb-6 text-sm text-gray-700">
+            Para a efetivação da contratação, o **candidato** deverá preencher os dados a seguir. A empresa contratante deverá, posteriormente, conferir com os documentos originais.
+        </p>
+
+        <form id="employeeForm" class="space-y-6">
+
             <div class="mt-4 w-full grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label for="empresa" class="block text-sm font-medium mb-1 text-center text-gray-700">Empresa Contratante</label>
@@ -49,14 +57,6 @@
                     <input type="tel" id="whatsappEmpresa" name="whatsappEmpresa" class="w-full px-4 py-2 border rounded-md focus:outline-none text-center" placeholder="(XX) XXXXX-XXXX" required>
                 </div>
             </div>
-            </div>
-
-        <p class="mb-6 text-sm text-gray-700">
-            Para a efetivação da contratação, o **candidato** deverá preencher os dados a seguir. A empresa contratante deverá, posteriormente, conferir com os documentos originais.
-        </p>
-
-        <form id="employeeForm" class="space-y-6">
-
             <fieldset class="border-t border-gray-300 pt-6">
                 <legend class="text-xl font-semibold mb-4 text-gray-800">1. DADOS CADASTRAIS</legend>
                 
@@ -359,9 +359,7 @@
 
         document.getElementById('employeeForm').addEventListener('input', updateAllLinks);
 
-        // NOVO: Função para gerar a mensagem completa com todos os dados do formulário
         function generateFullMessage(data) {
-            // Converte os dados do formulário para uma string formatada
             const message = `
 *--- FICHA DE REGISTRO DE FUNCIONÁRIOS ---*
 *Empresa Contratante:* ${data.empresa || 'Não informado'}
@@ -432,10 +430,8 @@
             const formData = new FormData(document.getElementById('employeeForm'));
             const data = Object.fromEntries(formData.entries());
 
-            // NOVO: Gera a mensagem completa para ambos os botões
             const fullMessage = generateFullMessage(data);
 
-            // 1. Lógica para o botão da Empresa Contratante
             const whatsappInputEmpresa = document.getElementById('whatsappEmpresa');
             const whatsappButtonEmpresa = document.getElementById('whatsappEmpresaButton');
             const numeroEmpresa = whatsappInputEmpresa.value.replace(/\D/g, ''); 
@@ -447,13 +443,11 @@
                 whatsappButtonEmpresa.href = '#';
             }
 
-            // 2. Lógica para o botão do Escritório de Contabilidade Percy
-            const percyNumber = "5521985518475"; // Número fixo do escritório
+            const percyNumber = "5521985518475";
             const whatsappButtonPercy = document.getElementById('whatsappPercyButton');
             const whatsappLinkPercy = `https://wa.me/${percyNumber}?text=${encodeURIComponent(fullMessage)}`;
             whatsappButtonPercy.href = whatsappLinkPercy;
 
-            // Mensagem de status para o usuário
             const statusMessage = document.getElementById('statusMessage');
             if (numeroEmpresa.length < 10) {
                 statusMessage.textContent = 'Por favor, insira um número de WhatsApp válido para a empresa contratante.';
