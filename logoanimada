@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice de Projetos - Percy Contabilidade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #5d4037;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        strong {
+            color: #3e2723;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Índice de Projetos e Documentos da Conversa</h1>
+    <p>Este índice resume todo o trabalho realizado, desde a análise do criativo musical até a criação e teste da sua assinatura sonora e animação de logo.</p>
+
+    <hr>
+
+    <h2>1. Análise e Adaptação de Criativo Musical</h2>
+    <ul>
+        <li>
+            <strong>Documento:</strong> Análise do Prompt do Criativo Musical (Link de Referência)<br>
+            <small><strong>Descrição:</strong> Detalhamento do prompt do criativo do YouTube, incluindo título, duração, música, ritmo e descrição de cenas.<br>
+            <strong>Recurso:</strong> <a href="https://youtube.com/shorts/Cqimb6NZ5k4?si=5tbBLmIO5Q1_XvDh" target="_blank">https://youtube.com/shorts/Cqimb6NZ5k4?si=5tbBLmIO5Q1_XvDh</a></small>
+        </li>
+        <li>
+            <strong>Documento:</strong> Prompt Criativo para "Percy Contabilidade"<br>
+            <small><strong>Descrição:</strong> Adaptação do prompt musical para um criativo focado nos serviços da Percy Contabilidade, mantendo o mesmo estilo dinâmico.</small>
+        </li>
+    </ul>
+
+    <h2>2. Criação da Identidade Sonora (Sonic Logo)</h2>
+    <ul>
+        <li>
+            <strong>Documento:</strong> Guia - Percy Assinatura Sonora<br>
+            <small><strong>Descrição:</strong> Um guia completo com a definição do conceito, a essência do nosso sonic logo e um passo a passo para a sua criação e utilização.</small>
+        </li>
+        <li>
+            <strong>Projeto:</strong> Teste da Assinatura Sonora no Murf.ai<br>
+            <small><strong>Descrição:</strong> O processo prático de como usar a plataforma Murf.ai para criar e testar o áudio do sonic logo, com sugestões de filtros, regulagens e considerações sobre os planos pagos.</small>
+        </li>
+    </ul>
+
+    <h2>3. Animação e Sincronização de Logomarca</h2>
+    <ul>
+        <li>
+            <strong>Projeto:</strong> Vídeo Animado da Logomarca (8 segundos)<br>
+            <small><strong>Descrição:</strong> Criação de uma animação para o seu logotipo, com montagem peça por peça, rotação 3D e fundo geométrico.</small>
+        </li>
+        <li>
+            <strong>Projeto:</strong> Teste de Sincronia<br>
+            <small><strong>Descrição:</strong> O vídeo de teste final com a sua logomarca animada, combinada e sincronizada com a assinatura sonora, validando o conceito do projeto.</small>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
