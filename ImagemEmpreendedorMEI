@@ -1,0 +1,101 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f7f9fc;
+    font-family: 'Inter', sans-serif;
+  }
+  .image-container {
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+  .loading-message {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: #0d9488;
+  }
+  /* Removendo o estilo do footer-overlay, pois confiamos que o texto é gerado na imagem pela IA. */
+  @media (max-width: 768px) {
+    .image-container {
+      width: 95%;
+    }
+  }
+</style>
+<div class="image-container">
+  <div id="loading" class="loading-message">Gerando sua imagem de alta qualidade (16:9)... Por favor, aguarde.</div>
+  <img id="generated-image" style="display:none; width:100%; height:auto;" alt="Jovem Empreendedor MEI, alegre e elegante com logo da Percy Contabilidade ao fundo.">
+  <!-- O div footer-overlay foi removido daqui para evitar conflitos de renderização -->
+</div>
+
+<script>
+  const apiKey = ""; 
+  const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
+
+  async function generateImage() {
+    const payload = {
+        instances: [{
+          // O prompt continua o mesmo, garantindo que a IA inclua o texto de rodapé
+          prompt: "Realistic photo of a charismatic, elegant, and vibrant young male entrepreneur (25-35 years old), with a genuine and jovial smile. He is dressed in business casual attire (modern blazer or neat shirt). The background is a slightly blurred, modern, and professional office setting. A subtle, high-quality logotype (representing 'Percy Contabilidade - Cheguei Sou MEI') is visible on a sign or glass wall in the background. The overall tone is bright, optimistic, and trustworthy. Aspect ratio 16:9. Include a subtle watermark/text overlay at the bottom right reading: @percycontabilidade"
+        }],
+        parameters: { "sampleCount": 1 }
+    };
+
+    const loadingElement = document.getElementById('loading');
+    const imageElement = document.getElementById('generated-image');
+    // Removida a referência ao footerElement, pois ele não existe mais no DOM
+
+    // Função de backoff exponencial
+    const maxRetries = 5;
+    const baseDelay = 2000; // 2 seconds
+
+    for (let attempt = 0; attempt < maxRetries; attempt++) {
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                // Se a resposta for um erro 4xx ou 5xx, tenta novamente com backoff
+                if (attempt < maxRetries - 1) {
+                    const delay = baseDelay * Math.pow(2, attempt) + Math.random() * 1000;
+                    console.warn(`Tentativa ${attempt + 1} falhou. Tentando novamente em ${delay.toFixed(0)}ms...`);
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    continue; 
+                } else {
+                    throw new Error(`Erro na API após ${maxRetries} tentativas: ${response.statusText}`);
+                }
+            }
+
+            const result = await response.json();
+            
+            if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
+                const base64Data = result.predictions[0].bytesBase64Encoded;
+                const imageUrl = `data:image/png;base64,${base64Data}`;
+                
+                loadingElement.style.display = 'none';
+                imageElement.src = imageUrl;
+                imageElement.style.display = 'block';
+                return;
+            } else {
+                throw new Error("Resposta da API inválida ou sem dados de imagem.");
+            }
+        } catch (error) {
+            loadingElement.innerHTML = `Erro ao gerar a imagem: ${error.message}`;
+            console.error(error);
+            return;
+        }
+    }
+  }
+
+  window.onload = generateImage;
+</script>
