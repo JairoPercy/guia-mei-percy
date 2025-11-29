@@ -273,28 +273,33 @@
                 `
             },
             {
-                // Passo 3: Final
+                // Passo 3: Final (A ESCOLHA)
                 html: `
                      <div class="progress-bar"><div class="dot"></div><div class="dot"></div><div class="dot active"></div></div>
                     <div class="step-container">
-                        <h2 style="color: var(--primary-gold);">🎉 Pronto!</h2>
-                        <p>Viu como é fácil? Agora você pode fazer isso no site oficial.</p>
-                        <div style="background:#fff3cd; padding:15px; border-radius:8px; margin:20px 0; border:1px solid #ffeeba;">
-                            <strong>Atenção:</strong><br>
-                            Se tiver meses atrasados ou dívida ativa, fale com a gente antes de emitir!
+                        <h2 style="color: var(--primary-wine);">Agora é "à vera"! 🚀</h2>
+                        <p>Você treinou e viu que não é um bicho de sete cabeças.<br>Agora, como você prefere gerar o boleto <strong>REAL</strong>?</p>
+                        
+                        <div style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
+                            
+                            <div style="border:1px solid #ddd; padding:15px; border-radius:8px; background:white;">
+                                <strong>Opção A: Quero fazer sozinho</strong><br>
+                                <span style="font-size:0.9rem; color:#666;">Acesse o site oficial da Receita Federal agora.</span>
+                                <br>
+                                <a href="http://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao" target="_blank" class="btn-action" style="background-color:#444; text-decoration:none; display:block; margin-top:10px; font-size:1rem;">Ir para o Site Oficial 🏛️</a>
+                            </div>
+
+                            <div style="border:1px solid var(--primary-gold); padding:15px; border-radius:8px; background:#fffdf5;">
+                                <strong>Opção B: Quero Consultoria VIP</strong><br>
+                                <span style="font-size:0.9rem; color:#666;">Medo de errar ou tem pendências antigas? Nós resolvemos.</span>
+                                <br>
+                                <a href="https://wa.me/5521974465706?text=Ola,%20fiz%20o%20simulador%20e%20quero%20ajuda%20para%20regularizar%20meu%20DAS" class="btn-action" style="text-decoration:none; display:block; margin-top:10px; font-size:1rem;">Chamar a Percy no Zap 💬</a>
+                            </div>
+
                         </div>
-                        <a href="https://wa.me/5521974465706?text=Acabei%20o%20treinamento,%20quero%20ajuda%20no%20MEI" class="btn-action" style="text-decoration:none; display:inline-block;">Quero Consultoria</a>
-                        <br><br>
-                        <button onclick="location.reload()" style="background:none; border:none; color:#666; cursor:pointer;">⟳ Reiniciar Teste</button>
+
+                        <br>
+                        <button onclick="location.reload()" style="background:none; border:none; color:#666; cursor:pointer; margin-top:10px;">⟳ Quero treinar novamente</button>
                     </div>
                 `
             }
-        ];
-
-        function renderStep() { mainArea.innerHTML = steps[step].html; }
-        function nextStep() { if (step < steps.length - 1) { step++; renderStep(); } }
-        renderStep();
-    </script>
-
-</body>
-</html>
