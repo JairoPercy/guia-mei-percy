@@ -22,7 +22,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;f
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-light);
             margin: 0;
             padding: 0;
@@ -195,7 +195,7 @@
 
             <div class="card">
                 <h3>Precisa de ajuda?</h3>
-                <a href="https://wa.me/5521974465706?text=Ola,%20estou%20no%20Simulador%20e%20tenho%20duvida" class="btn-whatsapp">Fale com Cafter Percy💬</a>
+                <a href="https://wa.me/5521974465706?text=Ola,%20estou%20no%20Simulador%20e%20tenho%20duvida" class="btn-whatsapp">Fale com Cafter Percy 💬</a>
             </div>
         </aside>
     </div>
@@ -206,100 +206,130 @@
     </footer>
 
     <script>
-        const mainArea = document.getElementById('simulator-area');
-        let step = 0;
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            const mainArea = document.getElementById('simulator-area');
+            let step = 0;
+            let savedCNPJ = "";
 
-        const steps = [
-            {
-                html: `
-                    <div class="step-container">
-                        <h2 style="color: var(--primary-wine);">Aprenda a emitir seu DAS</h2>
-                        <p>O site da Receita Federal pode parecer complicado, mas não é.<br>Use nosso simulador para treinar sem medo de errar.</p>
-                        <br>
-                        <div style="font-size: 40px;">🏦 ➡️ 🧾</div>
-                        <br>
-                        <button class="btn-action" onclick="nextStep()">Iniciar Simulação</button>
-                    </div>
-                `
-            },
-            {
-                html: `
-                    <div class="progress-bar"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
-                    <div class="step-container">
-                        <h3>Passo 1: O CNPJ</h3>
-                        <p>No PGMEI (Programa Gerador), digite apenas os números.</p>
-                        <div class="pgmei-mockup">
-                            <div class="input-group">
-                                <label>CNPJ Completo:</label>
-                                <input type="text" class="fake-input" placeholder="Digite seu CNPJ aqui..." maxlength="18">
-                            </div>
-                            <small>🔒 Ambiente Seguro Percy (Dados não são salvos)</small>
+            const steps = [
+                {
+                    html: `
+                        <div class="step-container">
+                            <h2 style="color: var(--primary-wine);">Aprenda a emitir seu DAS</h2>
+                            <p>O site da Receita Federal pode parecer complicado, mas não é.<br>Use nosso simulador para treinar sem medo de errar.</p>
+                            <br>
+                            <div style="font-size: 40px;">🏦 ➡️ 🧾</div>
+                            <br>
+                            <button class="btn-action" onclick="nextStep()">Iniciar Simulação</button>
                         </div>
-                        <button class="btn-action" onclick="nextStep()">Continuar ➤</button>
-                    </div>
-                `
-            },
-            {
-                html: `
-                    <div class="progress-bar"><div class="dot"></div><div class="dot active"></div><div class="dot"></div></div>
-                    <div class="step-container">
-                        <h3>Passo 2: Escolha o Mês</h3>
-                        <p>Selecione o ano atual e clique no mês que está "A Vencer".</p>
-                        <div class="pgmei-mockup">
-                            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #ddd; padding:10px;">
-                                <span>Dezembro/2024</span>
-                                <span style="color:red; font-weight:bold;">A Vencer ☒</span>
+                    `
+                },
+                {
+                    html: `
+                        <div class="progress-bar"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+                        <div class="step-container">
+                            <h3>Passo 1: O CNPJ</h3>
+                            <p>No PGMEI (Programa Gerador), digite apenas os números.</p>
+                            <div class="pgmei-mockup">
+                                <div class="input-group">
+                                    <label>CNPJ Completo:</label>
+                                    <input type="text" id="input-cnpj" class="fake-input" placeholder="Digite seu CNPJ aqui..." maxlength="18">
+                                </div>
+                                <small>🔒 Ambiente Seguro Percy (Dados não são salvos)</small>
                             </div>
+                            <button class="btn-action" onclick="nextStep()">Continuar ➤</button>
                         </div>
-                        <button class="btn-action" onclick="nextStep()">Gerar Boleto (DAS) ➤</button>
-                    </div>
-                `
-            },
-            {
-                html: `
-                     <div class="progress-bar"><div class="dot"></div><div class="dot"></div><div class="dot active"></div></div>
-                    <div class="step-container">
-                        <h2 style="color: var(--primary-wine);">Agora é "à vera"! 🚀</h2>
-                        <p>Você treinou e viu que não é um bicho de sete cabeças.<br>Agora, como você prefere gerar o boleto <strong>REAL</strong>?</p>
-                        
-                        <div style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
-                            <div style="border:1px solid #ddd; padding:15px; border-radius:8px; background:white;">
-                                <strong>Opção A: Quero fazer sozinho</strong><br>
-                                <span style="font-size:0.9rem; color:#666;">Acesse o site oficial da Receita Federal agora.</span>
-                                <br>
-                                <a href="http://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao" target="_blank" class="btn-action" style="background-color:#444; text-decoration:none; display:block; margin-top:10px; font-size:1rem;">Ir para o Site Oficial 🏛️</a>
+                    `
+                },
+                {
+                    // TEXTO AJUSTADO: "Confira" em vez de "Selecione"
+                    html: `
+                        <div class="progress-bar"><div class="dot"></div><div class="dot active"></div><div class="dot"></div></div>
+                        <div class="step-container">
+                            <h3>Passo 2: Escolha o Mês</h3>
+                            <p>Confira abaixo os meses. O sistema já selecionou o vencimento.<br>Clique em <strong>Gerar Boleto</strong> para continuar.</p>
+                            <div class="pgmei-mockup">
+                                <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:10px; color:#888;">
+                                    <span>Outubro/2024</span>
+                                    <span style="color:green; font-weight:bold;">Pago ☑</span>
+                                </div>
+                                <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:10px;">
+                                    <span>Novembro/2024</span>
+                                    <span style="color:red; font-weight:bold;">Devedor ☒</span>
+                                </div>
+                                <div style="display:flex; justify-content:space-between; padding:10px; background-color:#fffbea;">
+                                    <span style="font-weight:bold;">Dezembro/2024</span>
+                                    <span style="color:red; font-weight:bold;">A Vencer ☒</span>
+                                </div>
                             </div>
-
-                            <div style="border:1px solid var(--primary-gold); padding:15px; border-radius:8px; background:#fffdf5;">
-                                <strong>Opção B: Quero Consultoria VIP</strong><br>
-                                <span style="font-size:0.9rem; color:#666;">Medo de errar ou tem pendências antigas? Nós resolvemos.</span>
-                                <br>
-                                <a href="https://wa.me/5521974465706?text=Ola,%20fiz%20o%20simulador%20e%20quero%20ajuda%20para%20regularizar%20meu%20DAS" class="btn-action" style="text-decoration:none; display:block; margin-top:10px; font-size:1rem;">Chamar a Percy no Zap 💬</a>
-                            </div>
+                            <button class="btn-action" onclick="nextStep()">Gerar Boleto (DAS) ➤</button>
                         </div>
+                    `
+                },
+                {
+                    html: `
+                         <div class="progress-bar"><div class="dot"></div><div class="dot"></div><div class="dot active"></div></div>
+                        <div class="step-container">
+                            <h2 style="color: var(--primary-wine);">Agora é "à vera"! 🚀</h2>
+                            <p>Você treinou e viu que não é um bicho de sete cabeças.<br>Agora, como você prefere gerar o boleto <strong>REAL</strong>?</p>
+                            
+                            <div style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
+                                <div style="border:1px solid #ddd; padding:15px; border-radius:8px; background:white;">
+                                    <strong>Opção A: Quero fazer sozinho</strong><br>
+                                    <span style="font-size:0.9rem; color:#666;">Copiamos seu CNPJ. Basta colar no site oficial.</span>
+                                    <br>
+                                    <button onclick="copyAndGo()" class="btn-action" style="background-color:#444; width:100%; margin-top:10px;">Copiar CNPJ e Ir para Site Oficial 🏛️</button>
+                                </div>
 
-                        <br>
-                        <button onclick="location.reload()" style="background:none; border:none; color:#666; cursor:pointer; margin-top:10px;">⟳ Quero treinar novamente</button>
-                    </div>
-                `
-            }
-        ];
+                                <div style="border:1px solid var(--primary-gold); padding:15px; border-radius:8px; background:#fffdf5;">
+                                    <strong>Opção B: Quero Consultoria VIP</strong><br>
+                                    <span style="font-size:0.9rem; color:#666;">Medo de errar ou tem pendências antigas? Nós resolvemos.</span>
+                                    <br>
+                                    <a href="https://wa.me/5521974465706?text=Ola,%20fiz%20o%20simulador%20e%20quero%20ajuda%20para%20regularizar%20meu%20DAS" class="btn-action" style="text-decoration:none; display:block; margin-top:10px; font-size:1rem;">Chamar a Percy no Zap 💬</a>
+                                </div>
+                            </div>
 
-        function renderStep() {
-            if(mainArea) {
+                            <br>
+                            <button onclick="location.reload()" style="background:none; border:none; color:#666; cursor:pointer; margin-top:10px;">⟳ Quero treinar novamente</button>
+                        </div>
+                    `
+                }
+            ];
+
+            window.nextStep = function() {
+                if (step === 1) {
+                    const inputElement = document.getElementById('input-cnpj');
+                    if(inputElement) {
+                        savedCNPJ = inputElement.value;
+                    }
+                }
+                
+                if (step < steps.length - 1) {
+                    step++;
+                    renderStep();
+                }
+            };
+
+            window.copyAndGo = function() {
+                if(savedCNPJ) {
+                    navigator.clipboard.writeText(savedCNPJ).then(function() {
+                        alert("CNPJ Copiado! ✅\n\nAgora basta COLAR no campo do site da Receita.");
+                        window.open("http://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao", "_blank");
+                    }, function() {
+                        window.open("http://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao", "_blank");
+                    });
+                } else {
+                    window.open("http://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao", "_blank");
+                }
+            };
+
+            function renderStep() {
                 mainArea.innerHTML = steps[step].html;
             }
-        }
 
-        function nextStep() {
-            if (step < steps.length - 1) {
-                step++;
-                renderStep();
-            }
-        }
-
-        // Inicia Imediatamente
-        renderStep();
+            renderStep();
+        });
     </script>
 </body>
 </html>
