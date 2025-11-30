@@ -148,6 +148,19 @@
         .dot { width: 12px; height: 12px; background: #ddd; border-radius: 50%; }
         .dot.active { background: var(--primary-gold); }
 
+        /* Estilo do Checkbox Customizado */
+        .check-row {
+            display: flex; 
+            justify-content: space-between; 
+            padding: 15px; 
+            background-color: #fffbea; 
+            border: 1px solid #e0d0a0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .check-row:hover { background-color: #fff5d0; }
+
         footer {
             text-align: center;
             padding: 1.5rem;
@@ -182,7 +195,7 @@
         <aside class="sidebar">
             <div class="card">
                 <h3>📅 Vencimento do DAS</h3>
-                <div class="highlight-date">20/DEZ</div>
+                <div class="highlight-date" id="sidebar-date">20/MÊS</div>
                 <p style="font-size: 0.85rem; color: #666; text-align: center;">Evite Juros e Multa.</p>
             </div>
 
@@ -209,8 +222,19 @@
         document.addEventListener("DOMContentLoaded", function() {
             
             const mainArea = document.getElementById('simulator-area');
+            const sidebarDate = document.getElementById('sidebar-date');
+            
             let step = 0;
             let savedCNPJ = "";
+
+            // --- LÓGICA DE DATA AUTOMÁTICA ---
+            const today = new Date();
+            const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+            const currentMonthName = months[today.getMonth()];
+            const currentYear = today.getFullYear();
+            
+            // Atualiza a Sidebar automaticamente
+            sidebarDate.innerHTML = `20/${currentMonthName.substring(0,3).toUpperCase()}`;
 
             const steps = [
                 {
@@ -243,25 +267,27 @@
                     `
                 },
                 {
-                    // TEXTO AJUSTADO: "Confira" em vez de "Selecione"
+                    // PASSO 2 DINÂMICO
                     html: `
                         <div class="progress-bar"><div class="dot"></div><div class="dot active"></div><div class="dot"></div></div>
                         <div class="step-container">
                             <h3>Passo 2: Escolha o Mês</h3>
-                            <p>Confira abaixo os meses. O sistema já selecionou o vencimento.<br>Clique em <strong>Gerar Boleto</strong> para continuar.</p>
+                            <p>O sistema identificou o período em aberto (A Vencer).<br>Confira se a caixa está marcada e clique em <strong>Gerar Boleto</strong>.</p>
                             <div class="pgmei-mockup">
-                                <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:10px; color:#888;">
-                                    <span>Outubro/2024</span>
-                                    <span style="color:green; font-weight:bold;">Pago ☑</span>
+                                
+                                <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:10px; color:#aaa;">
+                                    <span>Competências Anteriores</span>
+                                    <span style="font-size:0.8rem;">(Processado)</span>
                                 </div>
-                                <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:10px;">
-                                    <span>Novembro/2024</span>
-                                    <span style="color:red; font-weight:bold;">Devedor ☒</span>
-                                </div>
-                                <div style="display:flex; justify-content:space-between; padding:10px; background-color:#fffbea;">
-                                    <span style="font-weight:bold;">Dezembro/2024</span>
+
+                                <div class="check-row" onclick="toggleCheck(this)">
+                                    <div style="display:flex; gap:10px; align-items:center;">
+                                        <input type="checkbox" checked style="transform: scale(1.3);"> 
+                                        <span style="font-weight:bold;">${currentMonthName}/${currentYear}</span>
+                                    </div>
                                     <span style="color:red; font-weight:bold;">A Vencer ☒</span>
                                 </div>
+
                             </div>
                             <button class="btn-action" onclick="nextStep()">Gerar Boleto (DAS) ➤</button>
                         </div>
@@ -304,7 +330,6 @@
                         savedCNPJ = inputElement.value;
                     }
                 }
-                
                 if (step < steps.length - 1) {
                     step++;
                     renderStep();
@@ -321,6 +346,18 @@
                     });
                 } else {
                     window.open("http://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao", "_blank");
+                }
+            };
+
+            // Função para simular o clique no checkbox
+            window.toggleCheck = function(row) {
+                const checkbox = row.querySelector('input[type="checkbox"]');
+                checkbox.checked = !checkbox.checked;
+                // Efeito visual de seleção
+                if(checkbox.checked) {
+                    row.style.backgroundColor = "#fffbea";
+                } else {
+                    row.style.backgroundColor = "#fff";
                 }
             };
 
